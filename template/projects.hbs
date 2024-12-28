@@ -1,0 +1,24 @@
+{{#if projects}}
+<section id="projects">
+  <header class="title">Projetos</header>
+  <ul class="project-list">
+    {{#each projects}}
+    <li>
+      <article class="project">
+        <figure>
+          {{!-- <img class="project-image"
+            src="{{this.banner}}"> --}}
+          {{> githubIcon}}
+        </figure>
+        <div class="content">
+          <header class="project-title">
+            {{this.title}}
+          </header>
+          <p>{{this.description}}</p>
+        </div>
+      </article>
+    </li>
+    {{/each}}
+  </ul>
+</section>
+{{/if}}

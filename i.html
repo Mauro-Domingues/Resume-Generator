@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mauro Domingues - Currículo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    
+    body {
+      font-family: 'Open Sans', sans-serif;
+      page-break-after: always;
+      position: relative;
+      height: 297mm;
+      width: 209.7mm;
+    }
+    
+    article {
+      page-break-inside: avoid;
+    }
+    
+    section {
+      display: flex;
+    }
+    
+    a {
+      text-decoration: none;
+      cursor: pointer;
+    }
+    
+    ul {
+      list-style-type: none;
+    }
+    
+    @page {
+      margin: 20px 30px;
+    }
+    * {
+      color: #706f6f;
+    }
+    
+    body {
+      display: flex;
+      gap: 25px;
+      flex-direction: column;
+      align-content: center;
+    }
+    
+    section {
+      gap: 20px;
+    }
+    
+    section>.title {
+      font-weight: 700;
+      font-size: 20px;
+    }
+    
+    #header {
+      justify-content: space-between;
+    }
+    
+    #header>.title {
+      padding-left: 15px;
+      padding-top: 15px;
+      font-size: 31.9px;
+      min-width: 65%;
+    }
+    
+    #header>.contact {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      height: fit-content;
+    }
+    
+    #header>.contact>li>a {
+      display: flex;
+      align-items: center;
+      min-height: 25px;
+      gap: 7px;
+    }
+    
+    #header>.contact>li>a>svg {
+      width: 20px;
+      min-width: 20px;
+      height: 20px;
+      min-height: 20px;
+    }
+    
+    #about {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    #about>.description {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 18px;
+    }
+    
+    #target {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    #target>.position {
+      font-size: 18px;
+    }
+    
+    #graduation {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    #graduation>.title {
+      align-self: center;
+    }
+    
+    #graduation>.graduation-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 25px
+    }
+    
+    #graduation>.graduation-list>li>article {
+      display: flex;
+      padding-left: 10px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px
+    }
+    
+    #graduation>.graduation-list>li>article>.graduation-title {
+      vertical-align: middle;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    
+    #graduation>.graduation-list>li>article>.graduation-title svg {
+      width: 20px;
+      min-width: 20px;
+      height: 20px;
+      min-height: 20px;
+      padding-top: 2px;
+    }
+    
+    #graduation>.graduation-list>li>article>.content {
+      padding-left: 30px;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 5px;
+      align-items: start;
+    }
+    
+    #graduation>.graduation-list>li>article>.content>p:nth-child(2) {
+      font-weight: 600;
+    }
+    
+    #specialization {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    #specialization>.title {
+      align-self: center;
+    }
+    
+    #specialization>.specialization-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 25px
+    }
+    
+    #specialization>.specialization-list>li>article {
+      display: flex;
+      padding-left: 10px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px
+    }
+    
+    #specialization>.specialization-list>li>article>.specialization-title {
+      vertical-align: middle;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    
+    #specialization>.specialization-list>li>article>.specialization-title svg {
+      width: 20px;
+      min-width: 20px;
+      height: 20px;
+      min-height: 20px;
+      padding-top: 2px;
+    }
+    
+    #specialization>.specialization-list>li>article>.content {
+      padding-left: 30px;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 5px;
+      align-items: start;
+    }
+    
+    #specialization>.specialization-list>li>article>.content>p:nth-child(2) {
+      font-weight: 600;
+    }
+    
+    #projects {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    #projects>.title {
+      align-self: center;
+    }
+    
+    #projects>.project-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 25px
+    }
+    
+    #projects>.project-list>li>article.project {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      gap: 15px;
+    }
+    
+    #projects>.project-list>li>article.project>figure {
+      flex: 0 0 80px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    #projects>.project-list>li>article>figure>svg {
+      width: 100%;
+      height: 100%;
+    }
+    
+    #projects>.project-list>li>article>.content {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    
+    #projects>.project-list>li>article>.content>.project-title {
+      font-size: 18px;
+      font-weight: 700;
+    }
+    
+    #experience {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    #experience>.title {
+      align-self: center;
+    }
+    
+    #experience>.experience-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 25px
+    }
+    
+    #experience>.experience-list>li>article {
+      display: flex;
+      padding-left: 10px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px
+    }
+    
+    #experience>.experience-list>li>article>.occupation-title {
+      vertical-align: middle;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    
+    #experience>.experience-list>li>article>.occupation-title svg {
+      width: 20px;
+      min-width: 20px;
+      height: 20px;
+      min-height: 20px;
+      padding-top: 2px;
+    }
+    
+    #experience>.experience-list>li>article>.content {
+      padding-left: 30px;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 5px;
+      align-items: start;
+    }
+    
+    #experience>.experience-list>li>article>.content>p:nth-child(2) {
+      font-weight: 600;
+    }  </style>
+</head>
+
+<body>
+  <section id="header">
+    <header class="title">Mauro Domingues</header>
+    <ul class="contact">
+      <li class="whatsapp">
+        <a href="https://wa.me/5535991248514" target="_blank">
+          <svg width="800px" height="800px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+              <title>Whatsapp-color</title>
+              <desc>Created with Sketch.</desc>
+              <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="Color-" transform="translate(-700.000000, -360.000000)" fill="#67C15E">
+                      <path
+                          d="M723.993033,360 C710.762252,360 700,370.765287 700,383.999801 C700,389.248451 701.692661,394.116025 704.570026,398.066947 L701.579605,406.983798 L710.804449,404.035539 C714.598605,406.546975 719.126434,408 724.006967,408 C737.237748,408 748,397.234315 748,384.000199 C748,370.765685 737.237748,360.000398 724.006967,360.000398 L723.993033,360.000398 L723.993033,360 Z M717.29285,372.190836 C716.827488,371.07628 716.474784,371.034071 715.769774,371.005401 C715.529728,370.991464 715.262214,370.977527 714.96564,370.977527 C714.04845,370.977527 713.089462,371.245514 712.511043,371.838033 C711.806033,372.557577 710.056843,374.23638 710.056843,377.679202 C710.056843,381.122023 712.567571,384.451756 712.905944,384.917648 C713.258648,385.382743 717.800808,392.55031 724.853297,395.471492 C730.368379,397.757149 732.00491,397.545307 733.260074,397.27732 C735.093658,396.882308 737.393002,395.527239 737.971421,393.891043 C738.54984,392.25405 738.54984,390.857171 738.380255,390.560912 C738.211068,390.264652 737.745308,390.095816 737.040298,389.742615 C736.335288,389.389811 732.90737,387.696673 732.25849,387.470894 C731.623543,387.231179 731.017259,387.315995 730.537963,387.99333 C729.860819,388.938653 729.198006,389.89831 728.661785,390.476494 C728.238619,390.928051 727.547144,390.984595 726.969123,390.744481 C726.193254,390.420348 724.021298,389.657798 721.340985,387.273388 C719.267356,385.42535 717.856938,383.125756 717.448104,382.434484 C717.038871,381.729275 717.405907,381.319529 717.729948,380.938852 C718.082653,380.501232 718.421026,380.191036 718.77373,379.781688 C719.126434,379.372738 719.323884,379.160897 719.549599,378.681068 C719.789645,378.215575 719.62006,377.735746 719.450874,377.382942 C719.281687,377.030139 717.871269,373.587317 717.29285,372.190836 Z"
+                          id="Whatsapp">
+                      </path>
+                  </g>
+              </g>
+          </svg>      +55 (35) 99124-8514
+        </a>
+      </li>
+      <li class="email">
+        <a href="mailto:maurinho.villa@hotmail.com">
+          <svg width="800px" height="800px" viewBox="0 -5 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+              <title>envelope</title>
+              <desc>Created with Sketch.</desc>
+              <g id="icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="ui-gambling-website-lined-icnos-casinoshunter" transform="translate(-2034.000000, -289.000000)"
+                      fill="#1C1C1F">
+                      <g id="1" transform="translate(1350.000000, 120.000000)">
+                          <path
+                              d="M702.968194,181.583684 L714.343639,190.683014 C714.296789,190.706522 714.249239,190.728839 714.201027,190.749925 L685.798973,190.749925 C685.750761,190.728839 685.703211,190.706522 685.656361,190.683014 L697.031494,181.583275 L698.516288,182.771272 C698.569285,182.81367 698.623685,182.853499 698.683086,182.893299 L698.683086,182.893299 L698.729719,182.923582 C698.764727,182.945761 698.800192,182.966944 698.836041,182.987184 C698.858724,182.999951 698.881568,183.012317 698.904729,183.024281 C698.936307,183.040702 698.96818,183.056371 698.999866,183.071179 C699.032594,183.086381 699.065591,183.100797 699.099054,183.114407 C699.120411,183.123161 699.14187,183.131592 699.163355,183.139789 C699.197711,183.152716 699.232303,183.164817 699.267157,183.176001 C699.294774,183.184952 699.322525,183.193386 699.350203,183.201354 C699.370482,183.207113 699.390821,183.212598 699.411307,183.217733 C699.448875,183.227333 699.486638,183.236003 699.524738,183.243856 C699.553308,183.249677 699.581963,183.254968 699.610267,183.259597 C699.64053,183.264625 699.670876,183.269064 699.701694,183.273009 C699.729987,183.27658 699.75833,183.279641 699.786318,183.282134 C699.818657,183.285053 699.851051,183.287311 699.883816,183.288924 C699.913439,183.29037 699.943083,183.291263 699.972453,183.291614 C700.004128,183.291985 700.035816,183.291725 700.067499,183.290802 C700.092512,183.290093 700.117515,183.28899 700.142499,183.287532 C700.180235,183.285275 700.217937,183.282118 700.255521,183.278017 C700.279566,183.275423 700.303579,183.272461 700.327661,183.269165 C700.361398,183.264478 700.395063,183.259062 700.428381,183.252919 C700.456513,183.247773 700.484572,183.242115 700.512455,183.235999 C700.544884,183.228844 700.577202,183.220999 700.609766,183.212346 C700.63088,183.206746 700.651932,183.200851 700.672509,183.194782 C700.715151,183.182199 700.757531,183.168388 700.800157,183.153177 C700.816885,183.147195 700.833561,183.141019 700.849583,183.134834 C700.887196,183.120421 700.924538,183.10501 700.961849,183.08855 C700.984647,183.078449 701.007322,183.067971 701.029526,183.057193 C701.100758,183.022896 701.170726,182.984819 701.239145,182.942949 L701.161,182.987 L701.136,183.002 L701.201306,182.965713 L701.239145,182.942949 L701.268392,182.924821 C701.288262,182.912254 701.307988,182.899364 701.327565,182.886152 L701.327565,182.886152 L701.415,182.823 L701.433,182.809 L701.483651,182.771321 L702.968194,181.583684 Z M684.097959,171.236739 L695.131,180.063 L684.126851,188.865889 C684.044342,188.591732 684,188.301044 684,188 L684,172 C684,171.736246 684.034037,171.480441 684.097959,171.236739 Z M716,172 L716,188 C716,188.301044 715.955658,188.591732 715.873149,188.865889 L704.87,180.063 L715.902041,171.236739 C715.965963,171.480441 716,171.736246 716,172 Z M714.427197,169.375 L700,180.916758 L697.031614,178.541725 L685.572803,169.375 L714.427197,169.375 Z"
+                              id="envelope">
+                          </path>
+                      </g>
+                  </g>
+              </g>
+          </svg>      maurinho.villa@hotmail.com
+        </a>
+      </li>
+      <li class="address">
+        <a href="https://maps.google.com/?q=Pouso Alegre - Minas Gerais" target="_blank">
+          <svg fill="#000000" height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+          	xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+          	<g>
+          		<g>
+          			<g>
+          				<path d="M255.991,213.339c35.355,0,64-28.645,64-64s-28.645-64-64-64s-64,28.645-64,64S220.636,213.339,255.991,213.339z
+          				 M255.991,128.006c11.791,0,21.333,9.542,21.333,21.333s-9.542,21.333-21.333,21.333c-11.791,0-21.333-9.542-21.333-21.333
+          				S244.2,128.006,255.991,128.006z" />
+          				<path d="M228.229,397.518l8.681,17.362c7.863,15.726,30.305,15.723,38.164-0.004l18.389-36.8
+          				c18.466-36.902,35.939-66.021,75.763-128.619l1.036-1.629c5.852-9.199,8.681-13.651,12.042-18.961
+          				c14.956-23.623,23.02-50.992,23.02-79.527c0-89.032-77.35-158.521-166.786-148.343c-66.548,7.591-121.188,60.835-130.398,127.125
+          				c-5.511,39.683,4.604,78.394,27.526,109.517C166.5,279.435,190.243,321.574,228.229,397.518z M150.402,133.992
+          				c6.528-46.989,45.76-85.218,92.967-90.603c64.055-7.29,119.289,42.33,119.289,105.951c0,20.39-5.735,39.855-16.403,56.706
+          				c-3.34,5.276-6.155,9.708-11.991,18.88l-1.036,1.629c-40.148,63.109-58.184,93.122-77.28,131.152
+          				c-33.196-65.363-56.271-105.169-85.935-145.383C153.636,190.087,146.437,162.538,150.402,133.992z" />
+          				<path d="M388.88,313.04c-11.464-2.719-22.961,4.371-25.68,15.835c-2.719,11.464,4.371,22.962,15.835,25.68
+          				c57.212,13.567,90.298,35.274,90.298,50.773c0,29.478-94.949,64-213.333,64c-118.398,0-213.333-34.518-213.333-64
+          				c0-15.508,33.053-37.209,90.236-50.773c11.464-2.719,18.553-14.217,15.834-25.681c-2.719-11.464-14.217-18.553-25.681-15.833
+          				C48.205,330.796,0,362.445,0,405.329c0,64.804,115.134,106.667,256,106.667c140.853,0,256-41.865,256-106.667
+          				C512,362.444,463.765,330.798,388.88,313.04z" />
+          			</g>
+          		</g>
+          	</g>
+          </svg>      Pouso Alegre - Minas Gerais
+        </a>
+      </li>
+      <li class="github">
+        <a href="" target="_blank">
+          <svg width="800px" height="800px" viewBox="0 0 73 73" version="1.1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+              <title>team-collaboration/version-control/github</title>
+              <desc>Created with Sketch.</desc>
+              <g id="team-collaboration/version-control/github" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="container" transform="translate(2.000000, 2.000000)" fill-rule="nonzero">
+                      <rect id="mask" stroke="#000000" stroke-width="2" fill="#000000" x="-1" y="-1" width="71" height="71"
+                          rx="14">
+          
+                      </rect>
+                      <path
+                          d="M58.3067362,21.4281798 C55.895743,17.2972267 52.6253846,14.0267453 48.4948004,11.615998 C44.3636013,9.20512774 39.8535636,8 34.9614901,8 C30.0700314,8 25.5585181,9.20549662 21.4281798,11.615998 C17.2972267,14.0266224 14.0269912,17.2972267 11.615998,21.4281798 C9.20537366,25.5590099 8,30.0699084 8,34.9607523 C8,40.8357654 9.71405782,46.1187277 13.1430342,50.8109917 C16.5716416,55.5036246 21.0008949,58.7507436 26.4304251,60.5527176 C27.0624378,60.6700211 27.5302994,60.5875152 27.8345016,60.3072901 C28.1388268,60.0266961 28.290805,59.6752774 28.290805,59.2545094 C28.290805,59.1842994 28.2847799,58.5526556 28.2730988,57.3588401 C28.2610487,56.1650247 28.2553926,55.1235563 28.2553926,54.2349267 L27.4479164,54.3746089 C26.9330843,54.468919 26.2836113,54.5088809 25.4994975,54.4975686 C24.7157525,54.4866252 23.9021284,54.4044881 23.0597317,54.2517722 C22.2169661,54.1004088 21.4330982,53.749359 20.7075131,53.1993604 C19.982297,52.6493618 19.4674649,51.9294329 19.1631397,51.0406804 L18.8120898,50.2328353 C18.5780976,49.6950097 18.2097104,49.0975487 17.7064365,48.4426655 C17.2031625,47.7871675 16.6942324,47.3427912 16.1794003,47.108799 L15.9336039,46.9328437 C15.7698216,46.815909 15.6178435,46.6748743 15.4773006,46.511215 C15.3368806,46.3475556 15.2317501,46.1837734 15.1615401,46.0197452 C15.0912072,45.855594 15.1494901,45.7209532 15.3370036,45.6153308 C15.5245171,45.5097084 15.8633939,45.4584343 16.3551097,45.4584343 L17.0569635,45.5633189 C17.5250709,45.6571371 18.104088,45.9373622 18.7947525,46.4057156 C19.4850481,46.8737001 20.052507,47.4821045 20.4972521,48.230683 C21.0358155,49.1905062 21.6846737,49.9218703 22.4456711,50.4251443 C23.2060537,50.9284182 23.9727072,51.1796248 24.744894,51.1796248 C25.5170807,51.1796248 26.1840139,51.121096 26.7459396,51.0046532 C27.3072505,50.8875956 27.8338868,50.7116403 28.3256025,50.477771 C28.5362325,48.9090515 29.1097164,47.7039238 30.0455624,46.8615271 C28.7116959,46.721353 27.5124702,46.5102313 26.4472706,46.2295144 C25.3826858,45.9484285 24.2825656,45.4922482 23.1476478,44.8597436 C22.0121153,44.2280998 21.0701212,43.44374 20.3214198,42.5080169 C19.5725954,41.571802 18.9580429,40.3426971 18.4786232,38.821809 C17.9989575,37.300306 17.7590632,35.5451796 17.7590632,33.5559381 C17.7590632,30.7235621 18.6837199,28.3133066 20.5326645,26.3238191 C19.6665366,24.1944035 19.7483048,21.8072644 20.778215,19.1626478 C21.4569523,18.951772 22.4635002,19.1100211 23.7973667,19.6364115 C25.1314792,20.1630477 26.1082708,20.6141868 26.7287253,20.9882301 C27.3491798,21.3621504 27.8463057,21.6790175 28.2208409,21.9360032 C30.3978419,21.3277217 32.644438,21.0235195 34.9612442,21.0235195 C37.2780503,21.0235195 39.5251383,21.3277217 41.7022622,21.9360032 L43.0362517,21.0938524 C43.9484895,20.5319267 45.0257392,20.0169716 46.2654186,19.5488642 C47.5058357,19.0810026 48.4543466,18.9521409 49.1099676,19.1630167 C50.1627483,21.8077563 50.2565666,24.1947724 49.3901927,26.324188 C51.2390143,28.3136755 52.1640399,30.7245457 52.1640399,33.556307 C52.1640399,35.5455485 51.9232849,37.3062081 51.444357,38.8393922 C50.9648143,40.3728223 50.3449746,41.6006975 49.5845919,42.5256002 C48.8233486,43.4503799 47.8753296,44.2285916 46.7404118,44.8601125 C45.6052481,45.4921252 44.504759,45.9483056 43.4401742,46.2293914 C42.3750975,46.5104772 41.1758719,46.7217219 39.8420054,46.8621419 C41.0585683,47.9149226 41.6669728,49.5767225 41.6669728,51.846804 L41.6669728,59.2535257 C41.6669728,59.6742937 41.8132948,60.0255895 42.1061847,60.3063064 C42.3987058,60.5865315 42.8606653,60.6690374 43.492678,60.5516109 C48.922946,58.7498829 53.3521992,55.5026409 56.7806837,50.810008 C60.2087994,46.117744 61.923472,40.8347817 61.923472,34.9597686 C61.9222424,30.0695396 60.7162539,25.5590099 58.3067362,21.4281798 Z"
+                          id="Shape" fill="#FFFFFF">
+                      </path>
+                  </g>
+              </g>
+          </svg>      https://google.com
+        </a>
+      </li>
+      <li class="linkedin">
+        <a href="" target="_blank">
+          <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#0077B5" fill-rule="evenodd"
+              d="M20.45175,20.45025 L16.89225,20.45025 L16.89225,14.88075 C16.89225,13.5525 16.86975,11.844 15.04275,11.844 C13.191,11.844 12.90825,13.2915 12.90825,14.7855 L12.90825,20.45025 L9.3525,20.45025 L9.3525,8.997 L12.765,8.997 L12.765,10.563 L12.81375,10.563 C13.2885,9.66225 14.4495,8.71275 16.18125,8.71275 C19.78575,8.71275 20.45175,11.08425 20.45175,14.169 L20.45175,20.45025 Z M5.33925,7.4325 C4.1955,7.4325 3.27375,6.50775 3.27375,5.36775 C3.27375,4.2285 4.1955,3.30375 5.33925,3.30375 C6.47775,3.30375 7.4025,4.2285 7.4025,5.36775 C7.4025,6.50775 6.47775,7.4325 5.33925,7.4325 L5.33925,7.4325 Z M7.11975,20.45025 L3.5565,20.45025 L3.5565,8.997 L7.11975,8.997 L7.11975,20.45025 Z M23.00025,0 L1.0005,0 C0.44775,0 0,0.44775 0,0.99975 L0,22.9995 C0,23.55225 0.44775,24 1.0005,24 L23.00025,24 C23.55225,24 24,23.55225 24,22.9995 L24,0.99975 C24,0.44775 23.55225,0 23.00025,0 L23.00025,0 Z" />
+          </svg>      https://linkedin.com
+        </a>
+      </li>
+      <li class="site">
+        <a href="https://google.com" target="_blank">
+          <svg width="800px" height="800px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" fill="none" width="20" height="20" />
+            <g>
+              <path
+                d="M9 0C4.03 0 0 4.03 0 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zM1.11 9.68h2.51c.04.91.167 1.814.38 2.7H1.84c-.403-.85-.65-1.764-.73-2.7zm8.57-5.4V1.19c.964.366 1.756 1.08 2.22 2 .205.347.386.708.54 1.08l-2.76.01zm3.22 1.35c.232.883.37 1.788.41 2.7H9.68v-2.7h3.22zM8.32 1.19v3.09H5.56c.154-.372.335-.733.54-1.08.462-.924 1.255-1.64 2.22-2.01zm0 4.44v2.7H4.7c.04-.912.178-1.817.41-2.7h3.21zm-4.7 2.69H1.11c.08-.936.327-1.85.73-2.7H4c-.213.886-.34 1.79-.38 2.7zM4.7 9.68h3.62v2.7H5.11c-.232-.883-.37-1.788-.41-2.7zm3.63 4v3.09c-.964-.366-1.756-1.08-2.22-2-.205-.347-.386-.708-.54-1.08l2.76-.01zm1.35 3.09v-3.04h2.76c-.154.372-.335.733-.54 1.08-.464.92-1.256 1.634-2.22 2v-.04zm0-4.44v-2.7h3.62c-.04.912-.178 1.817-.41 2.7H9.68zm4.71-2.7h2.51c-.08.936-.327 1.85-.73 2.7H14c.21-.87.337-1.757.38-2.65l.01-.05zm0-1.35c-.046-.894-.176-1.78-.39-2.65h2.16c.403.85.65 1.764.73 2.7l-2.5-.05zm1-4H13.6c-.324-.91-.793-1.76-1.39-2.52 1.244.56 2.325 1.426 3.14 2.52h.04zm-9.6-2.52c-.597.76-1.066 1.61-1.39 2.52H2.65c.815-1.094 1.896-1.96 3.14-2.52zm-3.15 12H4.4c.324.91.793 1.76 1.39 2.52-1.248-.567-2.33-1.445-3.14-2.55l-.01.03zm9.56 2.52c.597-.76 1.066-1.61 1.39-2.52h1.76c-.82 1.08-1.9 1.933-3.14 2.48l-.01.04z" />
+            </g>
+          </svg>      portifólio.com
+        </a>
+      </li>
+    </ul></section>  <section id="about">
+    <header class="title">Sobre mim</header>
+    <ul class="description">
+      <li>Desenvolvedor web focado em back-end com sólida experiência em design e construção de APIs em node.js e typescript, utilizando preferencialmente o express e o typeorm.</li>
+      <li>Possuo experiência com bancos de dados relacionais e não relacionais, conteinerização utilizando docker e infraestrutura com nginx, além de conhecimento em front- end com react, next e angular.</li>
+      <li>Já atuei em dezenas de produtos, desde sistemas legados ao SDLC de novos projetos e também sou responsável pela gestão e acompanhamento de novos desenvolvedores na equipe.</li>
+      <li>Possuo uma boa curva de aprendizado, muita atenção a detalhes e nível de inglês intermediário/ avançado.</li>
+    </ul>
+  </section>
+  <section id="target">
+    <header class="title">Objetivo</header>
+    <p class="position">Desenvolvedor back-end</p>
+  </section>
+  <section id="graduation">
+    <header class="title">Formação</header>
+    <ul class="graduation-list">
+      <li>
+        <article class="graduation">
+          <header class="graduation-title">
+            <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <g transform="translate(0 -1028.4)">
+      <g fill="#2980b9">
+        <path d="m3 1035.4v13h3v-13h-3zm5 0v13h3v-13h-3zm5 0v13h3v-13h-3zm5 0v13h3v-13h-3z" fill="#1abc9c" />
+        <path d="m4 1047.4c-1.1046 0-2 0.9-2 2v1h10 10v-1c0-1.1-0.895-2-2-2h-8-8z" fill="#16a085" />
+        <path d="m2 1048.4c-1.1046 0-2 0.9-2 2l2.8719e-8 1h24v-1c0-1.1-0.895-2-2-2h-20z" fill="#1abc9c" />
+        <rect height="1" width="24" y="1050.4" x="2.8719e-8" fill="#16a085" />
+        <path d="m12 1l-12 5v1h24v-1l-12-5z" transform="translate(0 1028.4)" fill="#1abc9c" />
+        <g fill="#16a085">
+          <rect height="13" width="1.5" y="1035.4" x="3" />
+          <rect height="13" width="1.5" y="1035.4" x="8" />
+          <rect height="12" width="1.5" y="1035.4" x="13" />
+          <rect height="12" width="1.5" y="1035.4" x="18" />
+          <path d="m2.2812 1035.4c0.3461 0.6 0.9792 1 1.7188 1h8 8c0.74 0 1.373-0.4 1.719-1h-19.438z" />
+        </g>
+      </g>
+    </g>
+  </svg> Desenvolvedor de Software
+          </header>
+          <div class="content">
+            <p>Instituição: </p>
+            <p>Rise Studio</p>
+            <p>Período: </p>
+            <p>outubro de 2022 - até o momento</p>
+            <p>Descrição: </p>
+            <p>Desenvolvi soluções personalizadas para diversos clientes e colaborei com equipes multidisciplinares. Além disso, orientei novos membros da equipe, promovendo um ambiente de crescimento contínuo.</p>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="graduation">
+          <header class="graduation-title">
+            <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <g transform="translate(0 -1028.4)">
+      <g fill="#2980b9">
+        <path d="m3 1035.4v13h3v-13h-3zm5 0v13h3v-13h-3zm5 0v13h3v-13h-3zm5 0v13h3v-13h-3z" fill="#1abc9c" />
+        <path d="m4 1047.4c-1.1046 0-2 0.9-2 2v1h10 10v-1c0-1.1-0.895-2-2-2h-8-8z" fill="#16a085" />
+        <path d="m2 1048.4c-1.1046 0-2 0.9-2 2l2.8719e-8 1h24v-1c0-1.1-0.895-2-2-2h-20z" fill="#1abc9c" />
+        <rect height="1" width="24" y="1050.4" x="2.8719e-8" fill="#16a085" />
+        <path d="m12 1l-12 5v1h24v-1l-12-5z" transform="translate(0 1028.4)" fill="#1abc9c" />
+        <g fill="#16a085">
+          <rect height="13" width="1.5" y="1035.4" x="3" />
+          <rect height="13" width="1.5" y="1035.4" x="8" />
+          <rect height="12" width="1.5" y="1035.4" x="13" />
+          <rect height="12" width="1.5" y="1035.4" x="18" />
+          <path d="m2.2812 1035.4c0.3461 0.6 0.9792 1 1.7188 1h8 8c0.74 0 1.373-0.4 1.719-1h-19.438z" />
+        </g>
+      </g>
+    </g>
+  </svg> Desenvolvedor de Software
+          </header>
+          <div class="content">
+            <p>Instituição: </p>
+            <p>Rise Studio</p>
+            <p>Período: </p>
+            <p>outubro de 2022 - até o momento</p>
+            <p>Descrição: </p>
+            <p>Desenvolvi soluções personalizadas para diversos clientes e colaborei com equipes multidisciplinares. Além disso, orientei novos membros da equipe, promovendo um ambiente de crescimento contínuo.</p>
+          </div>
+        </article>
+      </li>
+    </ul>
+  </section>
+  <section id="specialization">
+    <header class="title">Especialização</header>
+    <ul class="specialization-list">
+      <li>
+        <article class="specialization">
+          <header class="specialization-title">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  	viewBox="0 0 511.99 511.99" xml:space="preserve">
+  	<rect x="42.663" y="159.997" style="fill:#E6E9ED;" width="426.67" height="277.34" />
+  	<g>
+  		<path style="fill:#434A54;" d="M309.339,309.34H85.999c-5.891,0-10.664-4.781-10.664-10.688c0-5.875,4.773-10.656,10.664-10.656
+  		h223.34c5.875,0,10.656,4.781,10.656,10.656C319.995,304.559,315.214,309.34,309.339,309.34z" />
+  		<path style="fill:#434A54;" d="M309.339,351.995H85.999c-5.891,0-10.664-4.781-10.664-10.655c0-5.906,4.773-10.688,10.664-10.688
+  		h223.34c5.875,0,10.656,4.781,10.656,10.688C319.995,347.214,315.214,351.995,309.339,351.995z" />
+  		<path style="fill:#434A54;" d="M191.997,394.65H85.999c-5.891,0-10.664-4.766-10.664-10.656s4.773-10.656,10.664-10.656h105.998
+  		c5.891,0,10.663,4.766,10.663,10.656S197.888,394.65,191.997,394.65z" />
+  	</g>
+  	<g>
+  		<rect x="127.995" y="213.337" style="fill:#ED5564;" width="255.99" height="32" />
+  		<polygon style="fill:#ED5564;"
+  			points="373.337,347.495 373.337,394.65 394.398,383.994 415.992,395.103 415.992,348.839 	" />
+  	</g>
+  	<g>
+  		<path style="fill:#434A54;" d="M53.327,138.67c-4.531,0-8.727-2.914-10.164-7.46c-1.773-5.617,1.336-11.609,6.961-13.383
+  		l202.66-63.999c5.617-1.773,11.609,1.344,13.383,6.96c1.773,5.617-1.344,11.609-6.961,13.383L56.546,138.17
+  		C55.475,138.506,54.39,138.67,53.327,138.67z" />
+  		<path style="fill:#434A54;" d="M458.664,138.67c-1.062,0-2.141-0.164-3.219-0.5L252.784,74.172
+  		c-5.617-1.773-8.733-7.766-6.96-13.383c1.772-5.617,7.765-8.734,13.382-6.96l202.661,63.999c5.625,1.773,8.734,7.766,6.969,13.383
+  		C467.398,135.756,463.195,138.67,458.664,138.67z" />
+  	</g>
+  	<circle style="fill:#F6BB42;" cx="255.995" cy="63.997" r="32" />
+  	<g>
+  		<rect y="127.997" style="fill:#965353;" width="504.18" height="32" />
+  		<rect x="469.335" y="154.447" style="fill:#965353;" width="34.843" height="315.99" />
+  		<rect x="21.335" y="434.437" style="fill:#965353;" width="465.42" height="35.999" />
+  		<rect x="12.859" y="143.997" style="fill:#965353;" width="34.663" height="313.1" />
+  	</g>
+  	<path style="fill:#7F4545;" d="M501.335,117.335H10.664C4.773,117.335,0,122.108,0,127.999v341.338
+  	c0,5.875,4.773,10.656,10.664,10.656h490.671c5.875,0,10.655-4.781,10.655-10.656V127.999
+  	C511.99,122.108,507.21,117.335,501.335,117.335z M464.898,149.334H47.085l-10.664-10.672h439.148L464.898,149.334z
+  	 M458.648,170.663v255.988H53.335V170.663H458.648z M31.999,164.42V432.9l-10.664,10.672V153.748L31.999,164.42z M47.085,447.993
+  	h417.813l10.671,10.656H36.421L47.085,447.993z M479.991,432.9V164.42l10.656-10.672v289.824L479.991,432.9z" />
+  	<path style="fill:#F6BB42;" d="M426.648,319.996c0,17.672-14.312,31.999-32,31.999c-17.656,0-31.999-14.327-31.999-31.999
+  	s14.343-32,31.999-32C412.336,287.996,426.648,302.324,426.648,319.996z" />
+  	<g>
+  		<path style="fill:#FFCE54;" d="M394.648,362.651c-23.515,0-42.654-19.125-42.654-42.655c0-23.531,19.14-42.655,42.654-42.655
+  		c23.531,0,42.688,19.124,42.688,42.655C437.336,343.526,418.18,362.651,394.648,362.651z M394.648,298.652
+  		c-11.75,0-21.312,9.578-21.312,21.344s9.562,21.344,21.312,21.344c11.781,0,21.344-9.578,21.344-21.344
+  		S406.43,298.652,394.648,298.652z" />
+  		<path style="fill:#FFCE54;" d="M405.336,319.996c0,5.891-4.781,10.656-10.688,10.656c-5.875,0-10.656-4.766-10.656-10.656
+  		s4.781-10.656,10.656-10.656C400.555,309.34,405.336,314.105,405.336,319.996z" />
+  	</g>
+  </svg> Desenvolvedor de Software
+          </header>
+          <div class="content">
+            <p>Instituição: </p>
+            <p>Rise Studio</p>
+            <p>Período: </p>
+            <p>outubro de 2022 - até o momento</p>
+            <p>Descrição: </p>
+            <p>Desenvolvi soluções personalizadas para diversos clientes e colaborei com equipes multidisciplinares. Além disso, orientei novos membros da equipe, promovendo um ambiente de crescimento contínuo.</p>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="specialization">
+          <header class="specialization-title">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  	viewBox="0 0 511.99 511.99" xml:space="preserve">
+  	<rect x="42.663" y="159.997" style="fill:#E6E9ED;" width="426.67" height="277.34" />
+  	<g>
+  		<path style="fill:#434A54;" d="M309.339,309.34H85.999c-5.891,0-10.664-4.781-10.664-10.688c0-5.875,4.773-10.656,10.664-10.656
+  		h223.34c5.875,0,10.656,4.781,10.656,10.656C319.995,304.559,315.214,309.34,309.339,309.34z" />
+  		<path style="fill:#434A54;" d="M309.339,351.995H85.999c-5.891,0-10.664-4.781-10.664-10.655c0-5.906,4.773-10.688,10.664-10.688
+  		h223.34c5.875,0,10.656,4.781,10.656,10.688C319.995,347.214,315.214,351.995,309.339,351.995z" />
+  		<path style="fill:#434A54;" d="M191.997,394.65H85.999c-5.891,0-10.664-4.766-10.664-10.656s4.773-10.656,10.664-10.656h105.998
+  		c5.891,0,10.663,4.766,10.663,10.656S197.888,394.65,191.997,394.65z" />
+  	</g>
+  	<g>
+  		<rect x="127.995" y="213.337" style="fill:#ED5564;" width="255.99" height="32" />
+  		<polygon style="fill:#ED5564;"
+  			points="373.337,347.495 373.337,394.65 394.398,383.994 415.992,395.103 415.992,348.839 	" />
+  	</g>
+  	<g>
+  		<path style="fill:#434A54;" d="M53.327,138.67c-4.531,0-8.727-2.914-10.164-7.46c-1.773-5.617,1.336-11.609,6.961-13.383
+  		l202.66-63.999c5.617-1.773,11.609,1.344,13.383,6.96c1.773,5.617-1.344,11.609-6.961,13.383L56.546,138.17
+  		C55.475,138.506,54.39,138.67,53.327,138.67z" />
+  		<path style="fill:#434A54;" d="M458.664,138.67c-1.062,0-2.141-0.164-3.219-0.5L252.784,74.172
+  		c-5.617-1.773-8.733-7.766-6.96-13.383c1.772-5.617,7.765-8.734,13.382-6.96l202.661,63.999c5.625,1.773,8.734,7.766,6.969,13.383
+  		C467.398,135.756,463.195,138.67,458.664,138.67z" />
+  	</g>
+  	<circle style="fill:#F6BB42;" cx="255.995" cy="63.997" r="32" />
+  	<g>
+  		<rect y="127.997" style="fill:#965353;" width="504.18" height="32" />
+  		<rect x="469.335" y="154.447" style="fill:#965353;" width="34.843" height="315.99" />
+  		<rect x="21.335" y="434.437" style="fill:#965353;" width="465.42" height="35.999" />
+  		<rect x="12.859" y="143.997" style="fill:#965353;" width="34.663" height="313.1" />
+  	</g>
+  	<path style="fill:#7F4545;" d="M501.335,117.335H10.664C4.773,117.335,0,122.108,0,127.999v341.338
+  	c0,5.875,4.773,10.656,10.664,10.656h490.671c5.875,0,10.655-4.781,10.655-10.656V127.999
+  	C511.99,122.108,507.21,117.335,501.335,117.335z M464.898,149.334H47.085l-10.664-10.672h439.148L464.898,149.334z
+  	 M458.648,170.663v255.988H53.335V170.663H458.648z M31.999,164.42V432.9l-10.664,10.672V153.748L31.999,164.42z M47.085,447.993
+  	h417.813l10.671,10.656H36.421L47.085,447.993z M479.991,432.9V164.42l10.656-10.672v289.824L479.991,432.9z" />
+  	<path style="fill:#F6BB42;" d="M426.648,319.996c0,17.672-14.312,31.999-32,31.999c-17.656,0-31.999-14.327-31.999-31.999
+  	s14.343-32,31.999-32C412.336,287.996,426.648,302.324,426.648,319.996z" />
+  	<g>
+  		<path style="fill:#FFCE54;" d="M394.648,362.651c-23.515,0-42.654-19.125-42.654-42.655c0-23.531,19.14-42.655,42.654-42.655
+  		c23.531,0,42.688,19.124,42.688,42.655C437.336,343.526,418.18,362.651,394.648,362.651z M394.648,298.652
+  		c-11.75,0-21.312,9.578-21.312,21.344s9.562,21.344,21.312,21.344c11.781,0,21.344-9.578,21.344-21.344
+  		S406.43,298.652,394.648,298.652z" />
+  		<path style="fill:#FFCE54;" d="M405.336,319.996c0,5.891-4.781,10.656-10.688,10.656c-5.875,0-10.656-4.766-10.656-10.656
+  		s4.781-10.656,10.656-10.656C400.555,309.34,405.336,314.105,405.336,319.996z" />
+  	</g>
+  </svg> Desenvolvedor de Software
+          </header>
+          <div class="content">
+            <p>Instituição: </p>
+            <p>Rise Studio</p>
+            <p>Período: </p>
+            <p>outubro de 2022 - até o momento</p>
+            <p>Descrição: </p>
+            <p>Desenvolvi soluções personalizadas para diversos clientes e colaborei com equipes multidisciplinares. Além disso, orientei novos membros da equipe, promovendo um ambiente de crescimento contínuo.</p>
+          </div>
+        </article>
+      </li>
+    </ul>
+  </section>
+  <section id="projects">
+    <header class="title">Projetos</header>
+    <ul class="project-list">
+      <li>
+        <article class="project">
+          <figure>
+            <svg width="800px" height="800px" viewBox="0 0 73 73" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>team-collaboration/version-control/github</title>
+                <desc>Created with Sketch.</desc>
+                <g id="team-collaboration/version-control/github" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="container" transform="translate(2.000000, 2.000000)" fill-rule="nonzero">
+                        <rect id="mask" stroke="#000000" stroke-width="2" fill="#000000" x="-1" y="-1" width="71" height="71"
+                            rx="14">
+            
+                        </rect>
+                        <path
+                            d="M58.3067362,21.4281798 C55.895743,17.2972267 52.6253846,14.0267453 48.4948004,11.615998 C44.3636013,9.20512774 39.8535636,8 34.9614901,8 C30.0700314,8 25.5585181,9.20549662 21.4281798,11.615998 C17.2972267,14.0266224 14.0269912,17.2972267 11.615998,21.4281798 C9.20537366,25.5590099 8,30.0699084 8,34.9607523 C8,40.8357654 9.71405782,46.1187277 13.1430342,50.8109917 C16.5716416,55.5036246 21.0008949,58.7507436 26.4304251,60.5527176 C27.0624378,60.6700211 27.5302994,60.5875152 27.8345016,60.3072901 C28.1388268,60.0266961 28.290805,59.6752774 28.290805,59.2545094 C28.290805,59.1842994 28.2847799,58.5526556 28.2730988,57.3588401 C28.2610487,56.1650247 28.2553926,55.1235563 28.2553926,54.2349267 L27.4479164,54.3746089 C26.9330843,54.468919 26.2836113,54.5088809 25.4994975,54.4975686 C24.7157525,54.4866252 23.9021284,54.4044881 23.0597317,54.2517722 C22.2169661,54.1004088 21.4330982,53.749359 20.7075131,53.1993604 C19.982297,52.6493618 19.4674649,51.9294329 19.1631397,51.0406804 L18.8120898,50.2328353 C18.5780976,49.6950097 18.2097104,49.0975487 17.7064365,48.4426655 C17.2031625,47.7871675 16.6942324,47.3427912 16.1794003,47.108799 L15.9336039,46.9328437 C15.7698216,46.815909 15.6178435,46.6748743 15.4773006,46.511215 C15.3368806,46.3475556 15.2317501,46.1837734 15.1615401,46.0197452 C15.0912072,45.855594 15.1494901,45.7209532 15.3370036,45.6153308 C15.5245171,45.5097084 15.8633939,45.4584343 16.3551097,45.4584343 L17.0569635,45.5633189 C17.5250709,45.6571371 18.104088,45.9373622 18.7947525,46.4057156 C19.4850481,46.8737001 20.052507,47.4821045 20.4972521,48.230683 C21.0358155,49.1905062 21.6846737,49.9218703 22.4456711,50.4251443 C23.2060537,50.9284182 23.9727072,51.1796248 24.744894,51.1796248 C25.5170807,51.1796248 26.1840139,51.121096 26.7459396,51.0046532 C27.3072505,50.8875956 27.8338868,50.7116403 28.3256025,50.477771 C28.5362325,48.9090515 29.1097164,47.7039238 30.0455624,46.8615271 C28.7116959,46.721353 27.5124702,46.5102313 26.4472706,46.2295144 C25.3826858,45.9484285 24.2825656,45.4922482 23.1476478,44.8597436 C22.0121153,44.2280998 21.0701212,43.44374 20.3214198,42.5080169 C19.5725954,41.571802 18.9580429,40.3426971 18.4786232,38.821809 C17.9989575,37.300306 17.7590632,35.5451796 17.7590632,33.5559381 C17.7590632,30.7235621 18.6837199,28.3133066 20.5326645,26.3238191 C19.6665366,24.1944035 19.7483048,21.8072644 20.778215,19.1626478 C21.4569523,18.951772 22.4635002,19.1100211 23.7973667,19.6364115 C25.1314792,20.1630477 26.1082708,20.6141868 26.7287253,20.9882301 C27.3491798,21.3621504 27.8463057,21.6790175 28.2208409,21.9360032 C30.3978419,21.3277217 32.644438,21.0235195 34.9612442,21.0235195 C37.2780503,21.0235195 39.5251383,21.3277217 41.7022622,21.9360032 L43.0362517,21.0938524 C43.9484895,20.5319267 45.0257392,20.0169716 46.2654186,19.5488642 C47.5058357,19.0810026 48.4543466,18.9521409 49.1099676,19.1630167 C50.1627483,21.8077563 50.2565666,24.1947724 49.3901927,26.324188 C51.2390143,28.3136755 52.1640399,30.7245457 52.1640399,33.556307 C52.1640399,35.5455485 51.9232849,37.3062081 51.444357,38.8393922 C50.9648143,40.3728223 50.3449746,41.6006975 49.5845919,42.5256002 C48.8233486,43.4503799 47.8753296,44.2285916 46.7404118,44.8601125 C45.6052481,45.4921252 44.504759,45.9483056 43.4401742,46.2293914 C42.3750975,46.5104772 41.1758719,46.7217219 39.8420054,46.8621419 C41.0585683,47.9149226 41.6669728,49.5767225 41.6669728,51.846804 L41.6669728,59.2535257 C41.6669728,59.6742937 41.8132948,60.0255895 42.1061847,60.3063064 C42.3987058,60.5865315 42.8606653,60.6690374 43.492678,60.5516109 C48.922946,58.7498829 53.3521992,55.5026409 56.7806837,50.810008 C60.2087994,46.117744 61.923472,40.8347817 61.923472,34.9597686 C61.9222424,30.0695396 60.7162539,25.5590099 58.3067362,21.4281798 Z"
+                            id="Shape" fill="#FFFFFF">
+                        </path>
+                    </g>
+                </g>
+            </svg>        </figure>
+          <div class="content">
+            <header class="project-title">
+              Desenvolvedor de Software
+            </header>
+            <p>Desenvolvi soluções personalizadas para diversos clientes e colaborei com equipes multidisciplinares. Além disso, orientei novos membros da equipe, promovendo um ambiente de crescimento contínuo.</p>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="project">
+          <figure>
+            <svg width="800px" height="800px" viewBox="0 0 73 73" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>team-collaboration/version-control/github</title>
+                <desc>Created with Sketch.</desc>
+                <g id="team-collaboration/version-control/github" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="container" transform="translate(2.000000, 2.000000)" fill-rule="nonzero">
+                        <rect id="mask" stroke="#000000" stroke-width="2" fill="#000000" x="-1" y="-1" width="71" height="71"
+                            rx="14">
+            
+                        </rect>
+                        <path
+                            d="M58.3067362,21.4281798 C55.895743,17.2972267 52.6253846,14.0267453 48.4948004,11.615998 C44.3636013,9.20512774 39.8535636,8 34.9614901,8 C30.0700314,8 25.5585181,9.20549662 21.4281798,11.615998 C17.2972267,14.0266224 14.0269912,17.2972267 11.615998,21.4281798 C9.20537366,25.5590099 8,30.0699084 8,34.9607523 C8,40.8357654 9.71405782,46.1187277 13.1430342,50.8109917 C16.5716416,55.5036246 21.0008949,58.7507436 26.4304251,60.5527176 C27.0624378,60.6700211 27.5302994,60.5875152 27.8345016,60.3072901 C28.1388268,60.0266961 28.290805,59.6752774 28.290805,59.2545094 C28.290805,59.1842994 28.2847799,58.5526556 28.2730988,57.3588401 C28.2610487,56.1650247 28.2553926,55.1235563 28.2553926,54.2349267 L27.4479164,54.3746089 C26.9330843,54.468919 26.2836113,54.5088809 25.4994975,54.4975686 C24.7157525,54.4866252 23.9021284,54.4044881 23.0597317,54.2517722 C22.2169661,54.1004088 21.4330982,53.749359 20.7075131,53.1993604 C19.982297,52.6493618 19.4674649,51.9294329 19.1631397,51.0406804 L18.8120898,50.2328353 C18.5780976,49.6950097 18.2097104,49.0975487 17.7064365,48.4426655 C17.2031625,47.7871675 16.6942324,47.3427912 16.1794003,47.108799 L15.9336039,46.9328437 C15.7698216,46.815909 15.6178435,46.6748743 15.4773006,46.511215 C15.3368806,46.3475556 15.2317501,46.1837734 15.1615401,46.0197452 C15.0912072,45.855594 15.1494901,45.7209532 15.3370036,45.6153308 C15.5245171,45.5097084 15.8633939,45.4584343 16.3551097,45.4584343 L17.0569635,45.5633189 C17.5250709,45.6571371 18.104088,45.9373622 18.7947525,46.4057156 C19.4850481,46.8737001 20.052507,47.4821045 20.4972521,48.230683 C21.0358155,49.1905062 21.6846737,49.9218703 22.4456711,50.4251443 C23.2060537,50.9284182 23.9727072,51.1796248 24.744894,51.1796248 C25.5170807,51.1796248 26.1840139,51.121096 26.7459396,51.0046532 C27.3072505,50.8875956 27.8338868,50.7116403 28.3256025,50.477771 C28.5362325,48.9090515 29.1097164,47.7039238 30.0455624,46.8615271 C28.7116959,46.721353 27.5124702,46.5102313 26.4472706,46.2295144 C25.3826858,45.9484285 24.2825656,45.4922482 23.1476478,44.8597436 C22.0121153,44.2280998 21.0701212,43.44374 20.3214198,42.5080169 C19.5725954,41.571802 18.9580429,40.3426971 18.4786232,38.821809 C17.9989575,37.300306 17.7590632,35.5451796 17.7590632,33.5559381 C17.7590632,30.7235621 18.6837199,28.3133066 20.5326645,26.3238191 C19.6665366,24.1944035 19.7483048,21.8072644 20.778215,19.1626478 C21.4569523,18.951772 22.4635002,19.1100211 23.7973667,19.6364115 C25.1314792,20.1630477 26.1082708,20.6141868 26.7287253,20.9882301 C27.3491798,21.3621504 27.8463057,21.6790175 28.2208409,21.9360032 C30.3978419,21.3277217 32.644438,21.0235195 34.9612442,21.0235195 C37.2780503,21.0235195 39.5251383,21.3277217 41.7022622,21.9360032 L43.0362517,21.0938524 C43.9484895,20.5319267 45.0257392,20.0169716 46.2654186,19.5488642 C47.5058357,19.0810026 48.4543466,18.9521409 49.1099676,19.1630167 C50.1627483,21.8077563 50.2565666,24.1947724 49.3901927,26.324188 C51.2390143,28.3136755 52.1640399,30.7245457 52.1640399,33.556307 C52.1640399,35.5455485 51.9232849,37.3062081 51.444357,38.8393922 C50.9648143,40.3728223 50.3449746,41.6006975 49.5845919,42.5256002 C48.8233486,43.4503799 47.8753296,44.2285916 46.7404118,44.8601125 C45.6052481,45.4921252 44.504759,45.9483056 43.4401742,46.2293914 C42.3750975,46.5104772 41.1758719,46.7217219 39.8420054,46.8621419 C41.0585683,47.9149226 41.6669728,49.5767225 41.6669728,51.846804 L41.6669728,59.2535257 C41.6669728,59.6742937 41.8132948,60.0255895 42.1061847,60.3063064 C42.3987058,60.5865315 42.8606653,60.6690374 43.492678,60.5516109 C48.922946,58.7498829 53.3521992,55.5026409 56.7806837,50.810008 C60.2087994,46.117744 61.923472,40.8347817 61.923472,34.9597686 C61.9222424,30.0695396 60.7162539,25.5590099 58.3067362,21.4281798 Z"
+                            id="Shape" fill="#FFFFFF">
+                        </path>
+                    </g>
+                </g>
+            </svg>        </figure>
+          <div class="content">
+            <header class="project-title">
+              Desenvolvedor de Software
+            </header>
+            <p>Desenvolvi soluções personalizadas para diversos clientes e colaborei com equipes multidisciplinares. Além disso, orientei novos membros da equipe, promovendo um ambiente de crescimento contínuo.Desenvolvi soluções personalizadas para diversos clientes e colaborei com equipes multidisciplinares. Além disso, orientei novos membros da equipe, promovendo um ambiente de crescimento contínuo.Desenvolvi soluções personalizadas para diversos clientes e colaborei com equipes multidisciplinares. Além disso, orientei novos membros da equipe, promovendo um ambiente de crescimento contínuo.Desenvolvi soluções personalizadas para diversos clientes e colaborei com equipes multidisciplinares. Além disso, orientei novos membros da equipe, promovendo um ambiente de crescimento contínuo.</p>
+          </div>
+        </article>
+      </li>
+    </ul>
+  </section>
+  <section id="experience">
+    <header class="title">Experiência</header>
+    <ul class="experience-list">
+      <li>
+        <article class="occupation">
+          <header class="occupation-title">
+            <svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+  	xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+  	<path fill="#444C6D" d="M256,206.596c-8.982,0-17.965-0.898-35.93-3.593v39.523h71.86v-39.523
+  	C273.965,205.698,264.982,206.596,256,206.596" />
+  	<polygon fill="#D8D8D8" points="229.053,242.526 282.947,242.526 256,512 " />
+  	<path fill="#DD342E" d="M363.789,107.789C363.789,48.505,315.284,0,256,0S148.211,48.505,148.211,107.789
+  	S196.716,215.579,256,215.579S363.789,167.074,363.789,107.789" />
+  	<path id="SVGCleanerId_0" fill="#F86363" d="M184.14,116.772c-5.389,0-8.982-3.593-8.982-8.982
+  	c0-44.912,35.93-80.842,80.842-80.842c5.389,0,8.982,3.593,8.982,8.982s-3.593,8.982-8.982,8.982
+  	c-35.032,0-62.877,27.846-62.877,62.877C193.123,113.179,189.53,116.772,184.14,116.772" />
+  	<g>
+  		<path id="SVGCleanerId_0_1_" fill="#F86363" d="M184.14,116.772c-5.389,0-8.982-3.593-8.982-8.982
+  		c0-44.912,35.93-80.842,80.842-80.842c5.389,0,8.982,3.593,8.982,8.982s-3.593,8.982-8.982,8.982
+  		c-35.032,0-62.877,27.846-62.877,62.877C193.123,113.179,189.53,116.772,184.14,116.772" />
+  	</g>
+  </svg> Desenvolvedor de Software
+          </header>
+          <div class="content">
+            <p>Empresa: </p>
+            <p>Rise Studio</p>
+            <p>Período: </p>
+            <p>outubro de 2022 - até o momento</p>
+            <p>Descrição: </p>
+            <p>Desenvolvi soluções personalizadas para diversos clientes e colaborei com equipes multidisciplinares. Além disso, orientei novos membros da equipe, promovendo um ambiente de crescimento contínuo.</p>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="occupation">
+          <header class="occupation-title">
+            <svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+  	xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+  	<path fill="#444C6D" d="M256,206.596c-8.982,0-17.965-0.898-35.93-3.593v39.523h71.86v-39.523
+  	C273.965,205.698,264.982,206.596,256,206.596" />
+  	<polygon fill="#D8D8D8" points="229.053,242.526 282.947,242.526 256,512 " />
+  	<path fill="#DD342E" d="M363.789,107.789C363.789,48.505,315.284,0,256,0S148.211,48.505,148.211,107.789
+  	S196.716,215.579,256,215.579S363.789,167.074,363.789,107.789" />
+  	<path id="SVGCleanerId_0" fill="#F86363" d="M184.14,116.772c-5.389,0-8.982-3.593-8.982-8.982
+  	c0-44.912,35.93-80.842,80.842-80.842c5.389,0,8.982,3.593,8.982,8.982s-3.593,8.982-8.982,8.982
+  	c-35.032,0-62.877,27.846-62.877,62.877C193.123,113.179,189.53,116.772,184.14,116.772" />
+  	<g>
+  		<path id="SVGCleanerId_0_1_" fill="#F86363" d="M184.14,116.772c-5.389,0-8.982-3.593-8.982-8.982
+  		c0-44.912,35.93-80.842,80.842-80.842c5.389,0,8.982,3.593,8.982,8.982s-3.593,8.982-8.982,8.982
+  		c-35.032,0-62.877,27.846-62.877,62.877C193.123,113.179,189.53,116.772,184.14,116.772" />
+  	</g>
+  </svg> Desenvolvedor de Software
+          </header>
+          <div class="content">
+            <p>Empresa: </p>
+            <p>Rise Studio</p>
+            <p>Período: </p>
+            <p>outubro de 2022 - até o momento</p>
+            <p>Descrição: </p>
+            <p>Desenvolvi soluções personalizadas para diversos clientes e colaborei com equipes multidisciplinares. Além disso, orientei novos membros da equipe, promovendo um ambiente de crescimento contínuo.</p>
+          </div>
+        </article>
+      </li>
+    </ul>
+  </section>
+</body>
+
+</html>

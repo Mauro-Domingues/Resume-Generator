@@ -1,0 +1,50 @@
+<ul class="contact">
+  {{#if whatsapp.value}}
+  <li class="whatsapp">
+    <a href="https://wa.me/{{whatsapp.href}}" target="_blank">
+      {{> whatsappIcon}}
+      {{whatsapp.value}}
+    </a>
+  </li>
+  {{/if}}
+  {{#if email}}
+  <li class="email">
+    <a href="mailto:{{email.value}}">
+      {{> envelopeIcon}}
+      {{email.value}}
+    </a>
+  </li>
+  {{/if}}
+  {{#if address}}
+  <li class="address">
+    <a href="https://maps.google.com/?q={{address.value}}" target="_blank">
+      {{> locationIcon}}
+      {{address.value}}
+    </a>
+  </li>
+  {{/if}}
+  {{#if github}}
+  <li class="github">
+    <a href="{{github.href}}" target="_blank">
+      {{> githubIcon}}
+      {{github.value}}
+    </a>
+  </li>
+  {{/if}}
+  {{#if linkedin}}
+  <li class="linkedin">
+    <a href="{{linkedin.href}}" target="_blank">
+      {{> linkedinIcon}}
+      {{linkedin.value}}
+    </a>
+  </li>
+  {{/if}}
+  {{#each personal}}
+  <li class="site">
+    <a href="{{this.href}}" target="_blank">
+      {{> siteIcon}}
+      {{this.value}}
+    </a>
+  </li>
+  {{/each}}
+</ul>
