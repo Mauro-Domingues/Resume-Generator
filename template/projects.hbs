@@ -1,23 +1,24 @@
 {{#if projects}}
 <section id="projects">
-  <header class="title">Projetos</header>
+  <h1 class="title">Projetos</h1>
   <ul class="project-list">
     {{#each projects}}
     <li>
       <article class="project">
+        {{#if this.banner}}
         <figure>
-          {{!-- <img class="project-image" src="{{this.banner}}"> --}}
-          {{> githubIcon}}
+          <img class="project-image" src="{{this.banner}}">
         </figure>
+        {{/if}}
         <div class="content">
-          <header class="project-title">
+          <h1 class="project-title">
             {{this.title}}
             {{#if this.link}}
             <a href="{{this.link.ref}}" target="_blank">
               ({{this.link.value}})
             </a>
             {{/if}}
-          </header>
+          </h1>
           <p>{{this.description}}</p>
         </div>
       </article>
