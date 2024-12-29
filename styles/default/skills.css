@@ -1,0 +1,19 @@
+#skills {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#skills>.title {
+  align-self: center;
+}
+
+#skills>.content {
+  display: flex;
+  gap: 3.125rem
+}
+
+#skills>.content>.skill-list {
+  list-style-position: inside;
+  list-style-type: disc;
+  gap: 0.1875rem
+}

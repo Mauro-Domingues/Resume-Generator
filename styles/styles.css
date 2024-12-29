@@ -4,6 +4,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: calc(10 * var(--base-font-size));
+  color: var(--font-color)
 }
 
 html {
@@ -32,10 +34,18 @@ a {
   cursor: pointer;
 }
 
+a:is(:link, :visited, :hover, :active) {
+  color: inherit;
+}
+
 ul {
   list-style-type: none;
 }
 
+.keywords {
+  display: none;
+}
+
 @page {
-  margin: 20px 30px;
+  margin: 1.25rem 1.875rem;
 }

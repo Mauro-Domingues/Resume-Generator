@@ -1,0 +1,48 @@
+#projects {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#projects>.title {
+  align-self: center;
+}
+
+#projects>.project-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.5625rem;
+}
+
+#projects>.project-list>li>article {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0.9375rem;
+}
+
+#projects>.project-list>li>article>figure {
+  flex: 0 0 3.125rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.625rem;
+  overflow: hidden;
+}
+
+#projects>.project-list>li>article>figure>svg {
+  width: 100%;
+  height: 100%;
+}
+
+#projects>.project-list>li>article>.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1875rem;
+}
+
+#projects>.project-list>li>article>.content>.project-title {
+  font-size: 1.125rem;
+  font-weight: bold;
+}

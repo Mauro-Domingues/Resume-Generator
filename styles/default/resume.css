@@ -1,0 +1,15 @@
+body {
+  display: flex;
+  gap: 1.875rem;
+  flex-direction: column;
+  align-content: center;
+}
+
+section {
+  gap: 1.25rem;
+}
+
+section>.title {
+  font-weight: bold;
+  font-size: 1.25rem;
+}

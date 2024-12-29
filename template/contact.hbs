@@ -1,7 +1,7 @@
 <ul class="contact">
   {{#if whatsapp.value}}
   <li class="whatsapp">
-    <a href="https://wa.me/{{whatsapp.href}}" target="_blank">
+    <a href="https://wa.me/{{whatsapp.ref}}" target="_blank">
       {{> whatsappIcon}}
       {{whatsapp.value}}
     </a>
@@ -25,7 +25,7 @@
   {{/if}}
   {{#if github}}
   <li class="github">
-    <a href="{{github.href}}" target="_blank">
+    <a href="{{github.ref}}" target="_blank">
       {{> githubIcon}}
       {{github.value}}
     </a>
@@ -33,7 +33,7 @@
   {{/if}}
   {{#if linkedin}}
   <li class="linkedin">
-    <a href="{{linkedin.href}}" target="_blank">
+    <a href="{{linkedin.ref}}" target="_blank">
       {{> linkedinIcon}}
       {{linkedin.value}}
     </a>
@@ -41,7 +41,7 @@
   {{/if}}
   {{#each personal}}
   <li class="site">
-    <a href="{{this.href}}" target="_blank">
+    <a href="{{this.ref}}" target="_blank">
       {{> siteIcon}}
       {{this.value}}
     </a>

@@ -1,0 +1,29 @@
+#header {
+  justify-content: space-between;
+}
+
+#header>.title {
+  padding-left: 0.9375rem;
+  padding-top: 0.9375rem;
+  font-size: 1.99375rem;
+  min-width: 65%;
+}
+
+#header>.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: fit-content;
+}
+
+#header>.contact>li>a {
+  display: flex;
+  align-items: center;
+  min-height: 1.5625rem;
+  gap: 0.4375rem
+}
+
+#header>.contact>li>a>svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}

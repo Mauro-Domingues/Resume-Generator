@@ -44,6 +44,19 @@ export class PdfContent {
     return parseTemplate(variables);
   }
 
+  #splitSkills(skills) {
+    return skills?.reduce((acc, item, index) => {
+      if (index < 7) {
+        acc.firstColumn.push(item);
+      } else if (index < 14) {
+        acc.secondColumn.push(item);
+      } else {
+        acc.thirdColumn.push(item);
+      }
+      return acc;
+    }, { firstColumn: [], secondColumn: [], thirdColumn: [] });
+  }
+
   #getImageBase64(path) {
     const imageBase64 = readFileSync(path, 'base64');
     return `data:image/svg+xml;base64,${imageBase64}`;
@@ -96,14 +109,55 @@ export class PdfContent {
     });
   }
 
-  #registerCss() {
+  get #template() { return 'default' }
+
+  #registerCss({ variables }) {
+    const template = variables.template ?? this.#template
+
     this.#registerPartial({
-      name: 'styles',
+      name: 'rootStyle',
+      file: resolve('styles', template, 'root.hbs'),
+      variables
+    });
+    this.#registerPartial({
+      name: 'baseStyle',
       file: resolve('styles', 'styles.css'),
     });
     this.#registerPartial({
-      name: 'resume',
-      file: resolve('styles', 'resume.css'),
+      name: 'resumeStyle',
+      file: resolve('styles', template, 'resume.css'),
+    });
+    this.#registerPartial({
+      name: 'headerStyle',
+      file: resolve('styles', template, 'header.css'),
+    });
+    this.#registerPartial({
+      name: 'aboutStyle',
+      file: resolve('styles', template, 'about.css'),
+    });
+    this.#registerPartial({
+      name: 'skillsStyle',
+      file: resolve('styles', template, 'skills.css'),
+    });
+    this.#registerPartial({
+      name: 'targetStyle',
+      file: resolve('styles', template, 'target.css'),
+    });
+    this.#registerPartial({
+      name: 'graduationStyle',
+      file: resolve('styles', template, 'graduation.css'),
+    });
+    this.#registerPartial({
+      name: 'specializationStyle',
+      file: resolve('styles', template, 'specialization.css'),
+    });
+    this.#registerPartial({
+      name: 'projectsStyle',
+      file: resolve('styles', template, 'projects.css'),
+    });
+    this.#registerPartial({
+      name: 'experienceStyle',
+      file: resolve('styles', template, 'experience.css'),
     });
   }
 
@@ -115,7 +169,7 @@ export class PdfContent {
         ...variables.contact, whatsapp: {
           ...variables.contact.whatsapp,
           value: this.#formatPhoneNumber(variables.contact.whatsapp.value),
-          href: variables.contact.whatsapp.value
+          ref: variables.contact.whatsapp.value
         }
       },
     });
@@ -150,6 +204,11 @@ export class PdfContent {
       variables: variables,
     });
     this.#registerPartial({
+      name: 'skills',
+      file: resolve('template', 'skills.hbs'),
+      variables: { skills: this.#splitSkills(variables.skills) },
+    });
+    this.#registerPartial({
       name: 'projects',
       file: resolve('template', 'projects.hbs'),
       variables: {
@@ -165,7 +224,7 @@ export class PdfContent {
 
   getContent(data) {
     this.#registerIcons(data)
-    this.#registerCss()
+    this.#registerCss(data)
     this.#registerHbs(data)
 
 

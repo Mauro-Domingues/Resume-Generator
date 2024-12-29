@@ -1,0 +1,47 @@
+#graduation {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#graduation>.title {
+  align-self: center;
+}
+
+#graduation>.graduation-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.5625rem;
+}
+
+#graduation>.graduation-list>li>article {
+  display: flex;
+  padding-left: 0.625rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9375rem;
+}
+
+#graduation>.graduation-list>li>article>.graduation-title {
+  vertical-align: middle;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+#graduation>.graduation-list>li>article>.graduation-title svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  padding-top: 0.125rem;
+}
+
+#graduation>.graduation-list>li>article>.content {
+  padding-left: 1.875rem;
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 0.3125rem;
+  align-items: start;
+}
+
+#graduation>.graduation-list>li>article>.content>p:nth-child(2) {
+  font-weight: bold;
+}

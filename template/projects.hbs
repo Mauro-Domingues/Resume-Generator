@@ -6,13 +6,17 @@
     <li>
       <article class="project">
         <figure>
-          {{!-- <img class="project-image"
-            src="{{this.banner}}"> --}}
+          {{!-- <img class="project-image" src="{{this.banner}}"> --}}
           {{> githubIcon}}
         </figure>
         <div class="content">
           <header class="project-title">
             {{this.title}}
+            {{#if this.link}}
+            <a href="{{this.link.ref}}" target="_blank">
+              ({{this.link.value}})
+            </a>
+            {{/if}}
           </header>
           <p>{{this.description}}</p>
         </div>
