@@ -1,17 +1,15 @@
-{{#if skills.firstColumn}}
+{{#if skills}}
 <section id="skills">
     <h1 class="title">{{skillTexts.title}}</h1>
     <span class="keywords">{{keywords}}</span>
     <div class="content">
-      {{#each skills}}
       <ul class="skill-list">
-        {{#each this}}
+        {{#each skills}}
         <li>
           <span>{{this.title}} - {{this.level}}</span>
         </li>
         {{/each}}
       </ul>
-      {{/each}}
     </div>
 </section>
 {{/if}}

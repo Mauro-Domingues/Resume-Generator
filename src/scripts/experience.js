@@ -40,19 +40,6 @@ export class Experience {
       });
       div.appendChild(keywordsAddBtn);
 
-      if (data?.keywords?.length) {
-        data.keywords.forEach(keyword => {
-          const keywordDiv = document.createElement('div');
-          keywordDiv.className = 'keyword-tag-inline';
-          keywordDiv.innerHTML = `
-          <input class="keyword-input" type="text" value="${keyword}" />
-          <button type="button" class="keyword-remove">×</button>
-        `;
-          keywordDiv.querySelector('.keyword-remove').addEventListener('click', () => keywordDiv.remove());
-          keywordsSub.appendChild(keywordDiv);
-        });
-      }
-
       const removeBtn = document.createElement('button');
       removeBtn.className = 'remove';
       removeBtn.textContent = 'Remover';

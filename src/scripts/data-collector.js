@@ -5,27 +5,33 @@ export class DataCollector {
     const templateConfig = {
       name: document.querySelector('#templateModel')?.value || 'default',
       language: document.querySelector('#templateLanguage')?.value || 'ptBr',
-      monochrome: document.querySelector('#templateMonochrome')?.checked || false,
+      monochrome: document.querySelector('#templateMonochrome')?.checked || undefined,
       fontColor: document.querySelector('#templateFontColor')?.value || '#706f6f',
-      fontSize: document.querySelector('#templateFontSize')?.value || 1,
+      fontSize: document.querySelector('#templateFontSize')?.value || 16,
     };
 
     const headerSection = {
       header: {
-        name: document.querySelector('#headerName')?.value || undefined,
+        ...(document.querySelector('#headerName')?.value && {
+          name: document.querySelector('#headerName')?.value,
+        })
       },
       contact: {
-        email: { value: document.querySelector('#headerEmail')?.value || undefined },
-        address: { value: document.querySelector('#headerAddress')?.value || undefined },
-        whatsapp: { value: document.querySelector('#headerWhatsapp')?.value?.replaceAll(/\D/g, '') || undefined },
-        github: {
-          value: document.querySelector('#headerGithubDisplay')?.value || undefined,
-          ref: document.querySelector('#headerGithubUrl')?.value || undefined
-        },
-        linkedin: {
-          value: document.querySelector('#headerLinkedinDisplay')?.value || undefined,
-          ref: document.querySelector('#headerLinkedinUrl')?.value || undefined
-        },
+        ...(document.querySelector('#headerEmail')?.value && { email: { value: document.querySelector('#headerEmail').value } }),
+        ...(document.querySelector('#headerAddress')?.value && { address: { value: document.querySelector('#headerAddress').value } }),
+        ...(document.querySelector('#headerWhatsapp')?.value && { whatsapp: { value: document.querySelector('#headerWhatsapp').value.replaceAll(/\D/g, '') } }),
+        ...(document.querySelector('#headerGithubDisplay')?.value && {
+          github: {
+            value: document.querySelector('#headerGithubDisplay').value,
+            ref: document.querySelector('#headerGithubUrl').value
+          }
+        }),
+        ...(document.querySelector('#headerLinkedinDisplay')?.value && {
+          linkedin: {
+            value: document.querySelector('#headerLinkedinDisplay')?.value,
+            ref: document.querySelector('#headerLinkedinUrl')?.value
+          }
+        }),
         personal: Array.from(document.querySelectorAll('#personalLinks .item'))?.map(item => ({
           value: document.querySelector('.title', item)?.value || undefined,
           ref: document.querySelector('.url', item)?.value || undefined,
@@ -55,7 +61,8 @@ export class DataCollector {
 
     const experienceSection = {
       experiences: Array.from(document.querySelectorAll('#experienceList .item'))?.map(item => {
-        const currently = item.querySelector('.currently', item)?.checked || false
+        const currently = item.querySelector('.currently', item)?.checked || undefined
+        const keywords = KeywordManager.getKeywordsFromItem(item)
 
         return {
           title: item.querySelector('.title', item)?.value || undefined,
@@ -64,14 +71,15 @@ export class DataCollector {
           ...(!currently && { endsAt: item.querySelector('.endsAt', item)?.value || undefined }),
           currently,
           description: item.querySelector('.description', item)?.value || undefined,
-          keywords: KeywordManager.getKeywordsFromItem(item),
+          ...(keywords.length && { keywords }),
         };
-      })
+      })?.filter(item => Object.values(item)?.filter(Boolean)?.length)
     }
 
     const graduationSection = {
       graduations: Array.from(document.querySelectorAll('#graduationList .item'))?.map(item => {
-        const currently = item.querySelector('.currently', item)?.checked || false
+        const currently = item.querySelector('.currently', item)?.checked || undefined
+        const keywords = KeywordManager.getKeywordsFromItem(item)
 
         return {
           title: item.querySelector('.title', item)?.value || undefined,
@@ -80,32 +88,42 @@ export class DataCollector {
           ...(!currently && { endsAt: item.querySelector('.endsAt', item)?.value || undefined }),
           currently,
           description: item.querySelector('.description', item)?.value || undefined,
-          keywords: KeywordManager.getKeywordsFromItem(item),
+          ...(keywords.length && { keywords }),
         };
-      })
+      })?.filter(item => Object.values(item)?.filter(Boolean)?.length)
     }
 
     const projectSection = {
-      projects: Array.from(document.querySelectorAll('#projectsList .item'))?.map(item => ({
-        title: item.querySelector('.title', item)?.value || undefined,
-        description: item.querySelector('.description', item)?.value || undefined,
-        banner: item.querySelector(`input[type="file"].banner`, item)?.dataset?.base64 || undefined,
-        link: {
-          value: item.querySelector('.link-value', item)?.value || undefined,
-          ref: item.querySelector('.link-ref', item)?.value || undefined
-        },
-        keywords: KeywordManager.getKeywordsFromItem(item),
-      }))
+      projects: Array.from(document.querySelectorAll('#projectsList .item'))?.map(item => {
+        const keywords = KeywordManager.getKeywordsFromItem(item)
+
+        return {
+          title: item.querySelector('.title', item)?.value || undefined,
+          description: item.querySelector('.description', item)?.value || undefined,
+          banner: item.querySelector(`input[type="file"].banner`, item)?.dataset?.base64 || undefined,
+          ...(item.querySelector('.link-value', item)?.value && {
+            link: {
+              value: item.querySelector('.link-value', item).value,
+              ref: item.querySelector('.link-ref', item)?.value || undefined
+            }
+          }),
+          ...(keywords.length && { keywords }),
+        }
+      })?.filter(item => Object.values(item)?.filter(Boolean)?.length)
     }
 
     const specializationSection = {
-      specializations: Array.from(document.querySelectorAll('#specializationList .item'))?.map(item => ({
-        title: item.querySelector('.title', item)?.value || undefined,
-        institution: item.querySelector('.institution', item)?.value || undefined,
-        duration: item.querySelector('.duration', item)?.value || undefined,
-        description: item.querySelector('.description', item)?.value || undefined,
-        keywords: KeywordManager.getKeywordsFromItem(item),
-      }))
+      specializations: Array.from(document.querySelectorAll('#specializationList .item'))?.map(item => {
+        const keywords = KeywordManager.getKeywordsFromItem(item)
+
+        return {
+          title: item.querySelector('.title', item)?.value || undefined,
+          institution: item.querySelector('.institution', item)?.value || undefined,
+          duration: item.querySelector('.duration', item)?.value || undefined,
+          description: item.querySelector('.description', item)?.value || undefined,
+          ...(keywords.length && { keywords }),
+        }
+      })?.filter(item => Object.values(item)?.filter(Boolean)?.length)
     }
 
     return {

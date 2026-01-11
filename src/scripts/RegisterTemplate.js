@@ -120,36 +120,6 @@ export class RegisterTemplate {
     return phone;
   }
 
-  #splitSkills(
-    templateConfig,
-    skills,
-  ) {
-    return skills?.reduce(
-      (acc, item, index) => {
-        Object.assign(item, {
-          level:
-            this.#languageConfig[templateConfig.language].skillTexts.options[
-            item.level
-            ],
-        });
-
-        if (index < 7) {
-          acc.firstColumn.push(item);
-        } else if (index < 14) {
-          acc.secondColumn.push(item);
-        } else {
-          acc.thirdColumn.push(item);
-        }
-        return acc;
-      },
-      { firstColumn: [], secondColumn: [], thirdColumn: [] },
-    );
-  }
-
-  #getImageBase64(path) {
-    return path
-  }
-
   #orderArrray(data) {
     data.sort((a, b) => {
       if (a.currently && !b.currently) return -1;
@@ -383,15 +353,15 @@ export class RegisterTemplate {
       file: resolve(this.#basePath, 'resume', 'templates', 'contact.hbs'),
       variables: {
         ...headerSection.contact,
-        whatsapp: {
-          ...headerSection.contact.whatsapp,
-          ...(headerSection?.contact?.whatsapp?.value && {
+        ...(headerSection?.contact?.whatsapp?.value &&
+        {
+          whatsapp: {
             value: this.#formatPhoneNumber(
               headerSection.contact.whatsapp.value,
             ),
             ref: headerSection.contact.whatsapp.value,
-          }),
-        },
+          }
+        }),
       },
     });
     this.#parseContent.parsePartial({
@@ -464,7 +434,7 @@ export class RegisterTemplate {
       name: 'skillSection',
       file: resolve(this.#basePath, 'resume', 'templates', 'skills.hbs'),
       variables: skillSection.skills && {
-        skills: this.#splitSkills(templateConfig, skillSection.skills),
+        skills: skillSection.skills,
         keywords: this.#joinKeywords(skillSection.keywords),
         skillTexts: this.#languageConfig[templateConfig.language].skillTexts,
       },
@@ -476,10 +446,7 @@ export class RegisterTemplate {
         projects: projectSection.projects.map(project => {
           return {
             ...project,
-            ...(project.banner && {
-              banner: this.#getImageBase64(project.banner),
-              keywords: this.#joinKeywords(project.keywords),
-            }),
+            keywords: this.#joinKeywords(project.keywords),
           };
         }),
         projectTexts:
