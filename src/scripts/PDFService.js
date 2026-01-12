@@ -1,7 +1,5 @@
-import { launch, executablePath } from 'puppeteer';
-
 export class PDFService {
-  #browser!
+  #browser;
 
   async #init() {
     if (!this.#browser) {

@@ -1,3 +1,5 @@
+import Handlebars from 'https://cdn.jsdelivr.net/npm/handlebars@4.7.8/+esm'
+
 export class ParseContent {
   async parsePartial({ name, file, variables }) {
     const response = await fetch(file);

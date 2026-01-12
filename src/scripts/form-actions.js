@@ -1,5 +1,5 @@
 import { DataCollector } from './data-collector.js';
-// import { PDFService } from './PDFService.js';
+import { PDFService } from './PDFService.js';
 import { RegisterTemplate } from './registerTemplate.js';
 
 export class FormActions {
@@ -43,56 +43,16 @@ export class FormActions {
     await this.updatePreview();
   }
 
-  async setupPreviewButton() {
-    const previewBtn = document.querySelector('#preview');
-    if (!previewBtn) return;
+  async setupDownloadPDFButton() {
+    // const previewBtn = document.querySelector('#downloadPdf');
+    // if (!previewBtn) return;
 
-    previewBtn.addEventListener('click', async () => {
-      const variables = DataCollector.collect();
-      const htmlContent = await this.registerTemplate.getContent(variables);
+    // previewBtn.addEventListener('click', async () => {
+    // const variables = DataCollector.collect();
+    // const htmlContent = await this.registerTemplate.getContent(variables);
 
-      const newWindow = window.open();
-      newWindow.document.write(htmlContent);
-      newWindow.document.close();
-    });
-  }
-
-  setupDownloadPDFButton() {
-    const copyJsonBtn = document.querySelector('#downloadPdf');
-    if (!copyJsonBtn) return;
-
-    copyJsonBtn.addEventListener('click', async () => {
-      const downloadBtn = document.querySelector('#downloadPdf');
-      if (!downloadBtn) return;
-
-      downloadBtn.addEventListener('click', async () => {
-        try {
-          const variables = DataCollector.collect();
-          const resp = await fetch('/api/pdf', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(variables),
-          });
-
-          if (!resp.ok) {
-            const err = await resp.json();
-            alert('Error: ' + (err?.error || resp.statusText));
-            return;
-          }
-
-          const blob = await resp.blob();
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = 'resume.pdf';
-          a.click();
-          URL.revokeObjectURL(url);
-        } catch (err) {
-          console.error('Download PDF error:', err);
-          alert('Error downloading PDF: ' + err.message);
-        }
-      });
-    })
+    // await this.PDFService.generate(htmlContent)
+    // });
   }
 
   setupCopyJsonButton() {

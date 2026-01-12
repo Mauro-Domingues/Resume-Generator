@@ -164,7 +164,7 @@ export class RegisterTemplate {
   }
 
   #joinKeywords(keywords) {
-    return keywords.join(',');
+    return keywords?.join(',');
   }
 
   #prepareItems(
