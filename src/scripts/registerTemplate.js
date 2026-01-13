@@ -187,46 +187,47 @@ export class RegisterTemplate {
   async #registerIcons({ templateConfig }) {
     await this.#parseContent.parsePartial({
       name: 'diplomaIcon',
-      file: this.#resolve(this.#basePath, 'images', 'diploma-icon.svg'),
+      file: this.#resolve(this.#basePath, 'resume', 'icons', 'diploma-icon.hbs'),
       variables: templateConfig,
     });
     await this.#parseContent.parsePartial({
       name: 'envelopeIcon',
-      file: this.#resolve(this.#basePath, 'images', 'envelope-icon.svg'),
+      file: this.#resolve(this.#basePath, 'resume', 'icons', 'envelope-icon.hbs'),
       variables: templateConfig,
     });
     await this.#parseContent.parsePartial({
       name: 'githubIcon',
-      file: this.#resolve(this.#basePath, 'images', 'github-icon.svg'),
+      file: this.#resolve(this.#basePath, 'resume', 'icons', 'github-icon.hbs'),
       variables: templateConfig,
     });
     await this.#parseContent.parsePartial({
       name: 'institutionIcon',
-      file: this.#resolve(this.#basePath, 'images', 'institution-icon.svg'),
+      file: this.#resolve(this.#basePath, 'resume', 'icons', 'institution-icon.hbs'),
+      variables: templateConfig,
     });
     await this.#parseContent.parsePartial({
       name: 'linkedinIcon',
-      file: this.#resolve(this.#basePath, 'images', 'linkedin-icon.svg'),
+      file: this.#resolve(this.#basePath, 'resume', 'icons', 'linkedin-icon.hbs'),
       variables: templateConfig,
     });
     await this.#parseContent.parsePartial({
       name: 'locationIcon',
-      file: this.#resolve(this.#basePath, 'images', 'location-icon.svg'),
+      file: this.#resolve(this.#basePath, 'resume', 'icons', 'location-icon.hbs'),
       variables: templateConfig,
     });
     await this.#parseContent.parsePartial({
       name: 'pinIcon',
-      file: this.#resolve(this.#basePath, 'images', 'pin-icon.svg'),
+      file: this.#resolve(this.#basePath, 'resume', 'icons', 'pin-icon.hbs'),
       variables: templateConfig,
     });
     await this.#parseContent.parsePartial({
       name: 'siteIcon',
-      file: this.#resolve(this.#basePath, 'images', 'site-icon.svg'),
+      file: this.#resolve(this.#basePath, 'resume', 'icons', 'site-icon.hbs'),
       variables: templateConfig,
     });
     await this.#parseContent.parsePartial({
       name: 'whatsappIcon',
-      file: this.#resolve(this.#basePath, 'images', 'whatsapp-icon.svg'),
+      file: this.#resolve(this.#basePath, 'resume', 'icons', 'whatsapp-icon.hbs'),
       variables: templateConfig,
     });
   }
