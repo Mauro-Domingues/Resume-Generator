@@ -436,7 +436,13 @@ export class RegisterTemplate {
       name: 'skillSection',
       file: this.#resolve(this.#basePath, 'resume', 'templates', 'skills.hbs'),
       variables: skillSection.skills && {
-        skills: skillSection.skills,
+        skills: skillSection.skills.map(skill => ({
+          ...skill,
+          level:
+            this.#languageConfig[templateConfig.language].skillTexts.options[
+            skill.level
+            ],
+        })),
         keywords: this.#joinKeywords(skillSection.keywords),
         skillTexts: this.#languageConfig[templateConfig.language].skillTexts,
       },

@@ -39,7 +39,7 @@ export class Project {
         const kwDiv = document.createElement('div');
         kwDiv.className = 'keyword-tag-inline';
         kwDiv.innerHTML = `
-          <input class="keyword-input" type="text" placeholder="Keyword" />
+          <input class="keyword-input" type="text" placeholder="palavra-chave" />
           <button type="button" class="keyword-remove"></button>
         `;
         kwDiv.querySelector('.keyword-remove').addEventListener('click', () => kwDiv.remove());
