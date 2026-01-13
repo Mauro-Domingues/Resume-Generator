@@ -37,7 +37,7 @@ export class Header {
     div.innerHTML = `
       <input class="title" placeholder="Nome do Site (e.g., Portfolio)"/>
       <input class="url" placeholder="URL do Site"/>
-      <button class="remove">Remover</button>
+      <button class="remove"></button>
     `;
     div.querySelector('.remove').addEventListener('click', () => div.remove());
     return div;

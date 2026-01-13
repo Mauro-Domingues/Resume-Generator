@@ -14,7 +14,7 @@ export class Specialization {
         <input class="institution" placeholder="Instituição"/>
         <input type="number" class="duration" placeholder="Duração (horas)"/>
         <textarea class="description" placeholder="Descrição"></textarea>
-        <button class="remove">Remover</button>
+        <button class="remove"></button>
       `;
 
       const keywordsSub = document.createElement('div');
@@ -31,7 +31,7 @@ export class Specialization {
         kwDiv.className = 'keyword-tag-inline';
         kwDiv.innerHTML = `
           <input class="keyword-input" type="text" placeholder="Keyword" />
-          <button type="button" class="keyword-remove">×</button>
+          <button type="button" class="keyword-remove"></button>
         `;
         kwDiv.querySelector('.keyword-remove').addEventListener('click', () => kwDiv.remove());
         keywordsSub.appendChild(kwDiv);

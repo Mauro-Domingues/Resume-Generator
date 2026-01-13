@@ -14,7 +14,7 @@ export class KeywordManager {
     div.className = 'keyword-tag';
     div.innerHTML = `
       <input class="keyword-input" type="text" placeholder="Keyword"/>
-      <button type="button" class="keyword-remove">×</button>
+      <button type="button" class="keyword-remove"></button>
     `;
     div.querySelector('.keyword-remove').addEventListener('click', () => div.remove());
     return div;

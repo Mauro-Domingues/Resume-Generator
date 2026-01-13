@@ -16,7 +16,7 @@ export class Graduation {
         <input type="date" class="endsAt" placeholder="Fim"/>
         <label> Cursa Atualmente? <input type="checkbox" class="currently"/></label>
         <textarea class="description" placeholder="Descrição"></textarea>
-        <button class="remove">Remover</button>
+        <button class="remove"></button>
       `;
 
       const currentlyCheckbox = div.querySelector('.currently');
@@ -39,7 +39,7 @@ export class Graduation {
         kwDiv.className = 'keyword-tag-inline';
         kwDiv.innerHTML = `
           <input class="keyword-input" type="text" placeholder="Keyword" />
-          <button type="button" class="keyword-remove">×</button>
+          <button type="button" class="keyword-remove"></button>
         `;
         kwDiv.querySelector('.keyword-remove').addEventListener('click', () => kwDiv.remove());
         keywordsSub.appendChild(kwDiv);

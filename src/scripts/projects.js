@@ -36,7 +36,7 @@ export class Project {
         kwDiv.className = 'keyword-tag-inline';
         kwDiv.innerHTML = `
           <input class="keyword-input" type="text" placeholder="Keyword" />
-          <button type="button" class="keyword-remove">×</button>
+          <button type="button" class="keyword-remove"></button>
         `;
         kwDiv.querySelector('.keyword-remove').addEventListener('click', () => kwDiv.remove());
         keywordsSub.appendChild(kwDiv);
@@ -46,7 +46,6 @@ export class Project {
 
       const removeBtn = document.createElement('button');
       removeBtn.className = 'remove';
-      removeBtn.textContent = 'Remover';
       div.appendChild(removeBtn);
 
       const bannerInput = div.querySelector('.banner');

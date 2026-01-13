@@ -13,7 +13,7 @@ export class Description {
       div.className = 'description-tag';
       div.innerHTML = `
         <textarea class="description-input" placeholder="Descrição"></textarea>
-        <button type="button" class="description-remove">×</button>
+        <button type="button" class="description-remove"></button>
       `;
 
       div.querySelector('.description-remove').addEventListener('click', () => div.remove());

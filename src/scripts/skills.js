@@ -19,8 +19,8 @@ export class Skills {
           <option value="advanced">avançado</option>
           <option value="advanced-specialized">expert</option>
           <option value="specialized">especializado</option>
-        </select>
-        <button class="remove">Remover</button>
+          </select>
+        <button class="remove"></button>
       `;
 
       div.querySelector('.remove').addEventListener('click', () => div.remove());
