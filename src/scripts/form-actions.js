@@ -1,5 +1,7 @@
 import { DataCollector } from './data-collector.js';
 import { RegisterTemplate } from './registerTemplate.js';
+import { PersistenceManager } from './persistence.js';
+import { DataRestorer } from './data-restorer.js';
 
 export class FormActions {
   #registerTemplate
@@ -22,11 +24,29 @@ export class FormActions {
     }
   }
 
+  #saveFormData() {
+    const data = DataCollector.collect();
+    PersistenceManager.save(data);
+  }
+
+  async #loadFormData() {
+    const savedData = PersistenceManager.load();
+    if (savedData) {
+      DataRestorer.restore(savedData);
+      // Update preview after restoring data
+      await this.#updatePreview();
+    }
+  }
+
   async #setupAutoPreview() {
     let debounceTimer;
     const updatePreviewDebounced = () => {
       clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(async () => await this.#updatePreview(), 500);
+      debounceTimer = setTimeout(async () => {
+        await this.#updatePreview();
+        // Save form data automatically when preview updates
+        this.#saveFormData();
+      }, 500);
     };
 
     const main = document.querySelector('main');
@@ -56,7 +76,10 @@ export class FormActions {
     });
   }
 
-  setupAllActions() {
+  async setupAllActions() {
+    // Load saved data first, before setting up other actions
+    await this.#loadFormData();
+
     this.#setupAutoPreview();
     this.#setupDownloadPDFButton();
   }
