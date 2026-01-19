@@ -106,15 +106,15 @@ export class FormActions {
       const variables = DataCollector.collect();
       const htmlContent = await this.#registerTemplate.getContent(variables);
 
-      const element = document.createElement('div');
-      element.innerHTML = htmlContent;
+      const printWindow = window.open('', '_self');
+      printWindow.document.write(htmlContent);
+      printWindow.document.close();
 
-      html2pdf().set({
-        filename: 'documento.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'pt', format: 'a4', orientation: 'portrait' }
-      }).from(element).save();
+      printWindow.onafterprint = () => {
+        printWindow.close();
+      };
+
+      printWindow.print();
     });
   }
 
