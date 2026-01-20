@@ -20,12 +20,13 @@ export class Description {
   }
 
   #addItem(value = '') {
-    const item = document.createElement('div');
+    const index = this.#container?.children.length || 0;
+    const item = document.createElement('li');
     item.className = 'description-tag';
-    item.setAttribute('role', 'group');
     item.setAttribute('aria-label', 'Parágrafo de descrição');
 
     const textarea = document.createElement('textarea');
+    textarea.id = `aboutDescriptions-description-${index}`;
     textarea.className = 'description-input';
     textarea.placeholder = 'Descrição';
     textarea.setAttribute('aria-label', 'Texto da descrição');

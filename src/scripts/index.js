@@ -17,8 +17,7 @@ class Main {
   }
 
   #initializeComponents() {
-    new Navigation();
-
+    this.navigation = new Navigation();
     this.header = new Header();
     this.skills = new Skills();
     this.experience = new Experience();

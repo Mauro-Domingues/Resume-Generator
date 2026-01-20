@@ -90,6 +90,7 @@
     opacity: 1;
 }
 
+h3,
 .form-group label {
     display: block;
     margin-bottom: var(--space-sm);
@@ -157,6 +158,10 @@
     border-radius: var(--radius-md);
 }
 
+ul {
+    list-style: none;
+}
+
 /* ====================================
    ITEM CARDS (Dynamic Items)
    ==================================== */
@@ -189,11 +194,11 @@
 }
 
 .item:hover {
+    border-color: var(--color-primary);
     border-left-color: var(--color-accent);
     box-shadow: 0 12px 32px rgba(99, 102, 241, 0.15),
         0 0 1px rgba(99, 102, 241, 0.5);
     transform: translateY(-2px);
-    border-color: var(--color-primary);
 }
 
 .item:hover::before {

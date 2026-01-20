@@ -17,15 +17,16 @@ export class KeywordManager {
   }
 
   static #addKeyword(container, value = '') {
-    const kwDiv = document.createElement('div');
+    const index = container?.children.length || 0;
+    const kwDiv = document.createElement('li');
     kwDiv.className = 'keyword-tag';
-    kwDiv.setAttribute('role', 'group');
     kwDiv.setAttribute('aria-label', 'Palavra-chave');
 
     const input = document.createElement('input');
     input.className = 'keyword-input';
     input.type = 'text';
     input.placeholder = 'palavra-chave';
+    input.id = `${container.id}-keyword-input-${index}`;
     input.setAttribute('aria-label', 'Texto da palavra-chave');
     if (value) input.value = value;
 

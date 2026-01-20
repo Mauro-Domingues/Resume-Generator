@@ -17,24 +17,23 @@ export class Specialization {
   }
 
   #addItem(data = null) {
-    const item = document.createElement('div');
+    const index = this.#specializationList?.children.length || 0;
+    const item = document.createElement('li');
     item.className = 'item';
-    item.setAttribute('role', 'group');
     item.setAttribute('aria-label', 'Item de especialização');
 
     item.innerHTML = `
-      <input class="title" placeholder="Título" aria-label="Título da especialização" />
-      <input class="institution" placeholder="Instituição" aria-label="Nome da instituição" />
-      <input type="number" class="duration" placeholder="Duração (horas)" aria-label="Duração em horas" />
-      <textarea class="description" placeholder="Descrição" aria-label="Descrição da especialização"></textarea>
+      <input id="specializationList-title-${index}" class="title" placeholder="Título" aria-label="Título da especialização" />
+      <input id="specializationList-institution-${index}" class="institution" placeholder="Instituição" aria-label="Nome da instituição" />
+      <input type="number" id="specializationList-duration-${index}" class="duration" placeholder="Duração (horas)" aria-label="Duração em horas" />
+      <textarea id="specializationList-description-${index}" class="description" placeholder="Descrição" aria-label="Descrição da especialização"></textarea>
     `;
 
-    const keywordsSub = document.createElement('div');
+    const keywordsSub = document.createElement('li');
     keywordsSub.className = 'keywords-sub';
-    keywordsSub.setAttribute('role', 'group');
     keywordsSub.setAttribute('aria-label', 'Palavras-chave da especialização');
 
-    const keywordsLabel = document.createElement('label');
+    const keywordsLabel = document.createElement('h3');
     keywordsLabel.textContent = 'Palavras-chave';
     keywordsSub.appendChild(keywordsLabel);
 
@@ -44,7 +43,7 @@ export class Specialization {
     keywordsAddBtn.type = 'button';
     keywordsAddBtn.className = 'keywords-add';
     keywordsAddBtn.textContent = '+ Adicionar palavra-chave';
-    keywordsAddBtn.setAttribute('aria-label', 'Adicionar palavra-chave');
+    keywordsAddBtn.setAttribute('aria-label', '+ Adicionar palavra-chave');
     keywordsAddBtn.addEventListener('click', (event) => {
       event.preventDefault();
       this.#addKeyword(keywordsSub);
@@ -67,15 +66,16 @@ export class Specialization {
   }
 
   #addKeyword(container, value = '') {
-    const kwDiv = document.createElement('div');
+    const index = container?.children.length || 0;
+    const kwDiv = document.createElement('li');
     kwDiv.className = 'keyword-tag-inline';
-    kwDiv.setAttribute('role', 'group');
     kwDiv.setAttribute('aria-label', 'Palavra-chave');
 
     const input = document.createElement('input');
     input.className = 'keyword-input';
     input.type = 'text';
     input.placeholder = 'palavra-chave';
+    input.id = `specializationList-keyword-input-${index}`;
     input.setAttribute('aria-label', 'Texto da palavra-chave');
     if (value) input.value = value;
 
@@ -104,6 +104,7 @@ export class Specialization {
     setInputValue('.description', data.description);
 
     const keywordsSub = item.querySelector('.keywords-sub');
-    data.keywords?.forEach(kw => this.#addKeyword(keywordsSub, kw));
+    const specializationIndex = Array.from(this.#specializationList.children).indexOf(item);
+    data.keywords?.forEach(kw => this.#addKeyword(keywordsSub, specializationIndex, kw));
   }
 }

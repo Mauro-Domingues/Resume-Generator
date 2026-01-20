@@ -17,28 +17,27 @@ export class Project {
   }
 
   #addItem(data = null) {
-    const item = document.createElement('div');
+    const index = this.#projectList?.children.length || 0;
+    const item = document.createElement('li');
     item.className = 'item';
-    item.setAttribute('role', 'group');
     item.setAttribute('aria-label', 'Item de projeto');
 
     item.innerHTML = `
-      <input class="title" placeholder="Título" aria-label="Título do projeto" />
-      <textarea class="description" placeholder="Descrição" aria-label="Descrição do projeto"></textarea>
+      <input id="projectsList-title-${index}" class="title" placeholder="Título" aria-label="Título do projeto" />
+      <textarea id="projectsList-description-${index}" class="description" placeholder="Descrição" aria-label="Descrição do projeto"></textarea>
       <div class="image-input-wrapper">
-        <input type="file" class="banner" accept="image/*" data-base64="" aria-label="Banner do projeto" />
+        <input type="file" id="projectsList-banner-${index}" class="banner" accept="image/*" data-base64="" aria-label="Banner do projeto" />
         <button type="button" class="banner-remove remove" aria-label="Remover banner"></button>
       </div>
-      <input class="link-value" placeholder="Display Link" aria-label="Texto do link" />
-      <input class="link-ref" placeholder="Link URL" aria-label="URL do link" />
+      <input id="projectsList-linkValue-${index}" class="link-value" placeholder="Display Link" aria-label="Texto do link" />
+      <input id="projectsList-linkRef-${index}" class="link-ref" placeholder="Link URL" aria-label="URL do link" />
     `;
 
-    const keywordsSub = document.createElement('div');
+    const keywordsSub = document.createElement('li');
     keywordsSub.className = 'keywords-sub';
-    keywordsSub.setAttribute('role', 'group');
     keywordsSub.setAttribute('aria-label', 'Palavras-chave do projeto');
 
-    const keywordsLabel = document.createElement('label');
+    const keywordsLabel = document.createElement('h3');
     keywordsLabel.textContent = 'Palavras-chave';
     keywordsSub.appendChild(keywordsLabel);
 
@@ -48,10 +47,10 @@ export class Project {
     keywordsAddBtn.type = 'button';
     keywordsAddBtn.className = 'keywords-add';
     keywordsAddBtn.textContent = '+ Adicionar palavra-chave';
-    keywordsAddBtn.setAttribute('aria-label', 'Adicionar palavra-chave');
+    keywordsAddBtn.setAttribute('aria-label', '+ Adicionar palavra-chave');
     keywordsAddBtn.addEventListener('click', (event) => {
       event.preventDefault();
-      this.#addKeyword(keywordsSub);
+      this.#addKeyword(keywordsSub, index);
     });
 
     item.appendChild(keywordsAddBtn);
@@ -90,16 +89,17 @@ export class Project {
     this.#projectList?.appendChild(item);
   }
 
-  #addKeyword(container, value = '') {
-    const kwDiv = document.createElement('div');
+  #addKeyword(container, containerIndex, value = '') {
+    const index = container?.children.length || 0;
+    const kwDiv = document.createElement('li');
     kwDiv.className = 'keyword-tag-inline';
-    kwDiv.setAttribute('role', 'group');
     kwDiv.setAttribute('aria-label', 'Palavra-chave');
 
     const input = document.createElement('input');
     input.className = 'keyword-input';
     input.type = 'text';
     input.placeholder = 'palavra-chave';
+    input.id = `projectsList-${containerIndex}-keyword-input-${index}`;
     input.setAttribute('aria-label', 'Texto da palavra-chave');
     if (value) input.value = value;
 
@@ -135,6 +135,7 @@ export class Project {
     }
 
     const keywordsSub = item.querySelector('.keywords-sub');
-    data.keywords?.forEach(kw => this.#addKeyword(keywordsSub, kw));
+    const projectIndex = Array.from(this.#projectList.children).indexOf(item);
+    data.keywords?.forEach(kw => this.#addKeyword(keywordsSub, projectIndex, kw));
   }
 }

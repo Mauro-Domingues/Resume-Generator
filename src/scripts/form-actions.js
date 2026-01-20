@@ -104,7 +104,7 @@ export class FormActions {
 
     downloadBtn.addEventListener('click', async () => {
       const variables = DataCollector.collect();
-      let htmlContent = await this.#registerTemplate.getContent(variables);
+      const htmlContent = await this.#registerTemplate.getContent(variables);
 
       const autoPrintScript = `
       <script>
@@ -112,7 +112,7 @@ export class FormActions {
           setTimeout(() => {
             globalThis.print();
             globalThis.onafterprint = () => {
-              globalThis.history.back();
+              globalThis.location.replace(globalThis.location.origin);
             };
           }, 100);
         };
@@ -125,12 +125,14 @@ export class FormActions {
       </script>
     `;
 
-      htmlContent = htmlContent.replace('</body>', `${autoPrintScript}</body>`);
-
-      const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+      const blob = new Blob([
+        htmlContent.replace('</body>', `${autoPrintScript}</body>`)
+      ], {
+        type: 'text/html;charset=utf-8'
+      });
       const url = URL.createObjectURL(blob);
 
-      globalThis.location.href = url;
+      globalThis.location.replace(url);
     });
   }
 

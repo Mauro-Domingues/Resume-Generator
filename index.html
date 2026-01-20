@@ -3,11 +3,26 @@
 
 <head>
   <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-    content="Construtor de currículo profissional - Crie e personalize seu currículo de forma fácil e rápida" />
+
+  <meta name="description" content="Construtor de currículo profissional - Crie e personalize seu currículo de forma fácil e rápida." />
+  <meta name="keywords" content="currículo, resume, trabalho, emprego, carreira, profissional, gerador de currículo" />
   <meta name="author" content="Resume Generator" />
   <meta name="theme-color" content="#6366f1" />
+  <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
+
+  <meta property="og:title" content="Construtor de Currículo Profissional" />
+  <meta property="og:description" content="Crie e personalize seu currículo de forma fácil e rápida com o Resume Generator." />
+  <meta property="og:image" content="./src/images/fav-icon.svg" />
+  <meta property="og:url" content="https://mauro-domingues.github.io/Resume-Generator/" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Construtor de Currículo Profissional" />
+  <meta name="twitter:description" content="Crie e personalize seu currículo de forma fácil e rápida com o Resume Generator." />
+  <meta name="twitter:image" content="./src/images/fav-icon.svg" />
+  <meta name="twitter:url" content="https://mauro-domingues.github.io/Resume-Generator/" />
 
   <title>Construtor de Currículo - Crie seu Currículo Profissional</title>
 
@@ -111,13 +126,13 @@
 
             <div class="form-group">
               <label for="headerAddress">Endereço</label>
-              <input id="headerAddress" type="text" autocomplete="street-address" aria-required="false" />
+              <input id="headerAddress" type="text" autocomplete="address-line1" aria-required="false" />
             </div>
 
             <div class="form-group">
               <label for="headerWhatsapp">WhatsApp</label>
-              <input id="headerWhatsapp" type="tel" placeholder="+ 99 (99) 99999-9999" inputmode="numeric" autocomplete="tel"
-                aria-required="false" minlength="19" maxlength="19" />
+              <input id="headerWhatsapp" type="tel" placeholder="+ 99 (99) 99999-9999" inputmode="numeric"
+                autocomplete="tel" aria-required="false" minlength="19" maxlength="19" />
             </div>
 
             <fieldset class="form-group item">
@@ -141,10 +156,10 @@
             </fieldset>
 
             <div class="form-group">
-              <label id="personal-links-label">Links Pessoais</label>
-              <div id="personalLinks" class="items-container" role="list" aria-labelledby="personal-links-label"></div>
+              <h3 id="personal-links-label">Links Pessoais</h3>
+              <ul id="personalLinks" class="items-container" aria-labelledby="personal-links-label"></ul>
               <button type="button" id="personalLinksAdd" class="btn-add add-item"
-                aria-label="Adicionar novo link pessoal">+ Adicionar Link Pessoal</button>
+                aria-label="+ Adicionar Link Pessoal">+ Adicionar Link Pessoal</button>
             </div>
           </form>
         </section>
@@ -153,17 +168,15 @@
           <h2 id="about-heading">Sobre</h2>
           <form aria-label="Formulário sobre você">
             <div class="form-group">
-              <label id="about-description-label">Descrição</label>
-              <div id="aboutDescriptions" class="descriptions-container" role="list"
-                aria-labelledby="about-description-label"></div>
+              <h3 id="about-description-label">Descrição</h3>
+              <ul id="aboutDescriptions" class="descriptions-container" aria-labelledby="about-description-label"></ul>
               <button type="button" id="aboutDescriptionsAdd" class="btn-add-description add-item"
-                aria-label="Adicionar novo parágrafo de descrição">+ Adicionar Parágrafo</button>
-
-              <label id="about-keywords-label">Palavras-chave</label>
-              <div id="aboutKeywords" class="keywords-container" role="list" aria-labelledby="about-keywords-label">
-              </div>
+                aria-label="+ Adicionar Parágrafo">+ Adicionar Parágrafo</button>
+              <h3 id="about-keywords-label">Palavras-chave</h3>
+              <ul id="aboutKeywords" class="keywords-container" aria-labelledby="about-keywords-label">
+              </ul>
               <button type="button" id="aboutKeywordsAdd" class="btn-add-keyword"
-                aria-label="Adicionar palavra-chave na seção sobre">+ Adicionar Palavra-chave</button>
+                aria-label="+ Adicionar Palavra-chave">+ Adicionar Palavra-chave</button>
             </div>
           </form>
         </section>
@@ -171,16 +184,15 @@
         <section class="panel" id="skills" aria-labelledby="skills-heading">
           <h2 id="skills-heading">Habilidades</h2>
           <form aria-label="Formulário de habilidades">
-            <div id="skillsList" role="list" aria-label="Lista de habilidades"></div>
-            <button type="button" id="skillsAdd" class="add-item" aria-label="Adicionar nova habilidade">+ Adicionar
+            <ul id="skillsList" aria-label="Lista de habilidades"></ul>
+            <button type="button" id="skillsAdd" class="add-item" aria-label="+ Adicionar Habilidade">+ Adicionar
               Habilidade</button>
-
             <div class="form-group">
-              <label id="skills-keywords-label">Palavras-chave</label>
-              <div id="skillsKeywords" class="keywords-container" role="list" aria-labelledby="skills-keywords-label">
-              </div>
+              <h3 id="skills-keywords-label">Palavras-chave</h3>
+              <ul id="skillsKeywords" class="keywords-container" aria-labelledby="skills-keywords-label">
+              </ul>
               <button type="button" id="skillsKeywordsAdd" class="btn-add-keyword"
-                aria-label="Adicionar palavra-chave de habilidades">+ Adicionar Palavra-chave</button>
+                aria-label="+ Adicionar Palavra-chave">+ Adicionar Palavra-chave</button>
             </div>
           </form>
         </section>
@@ -194,11 +206,11 @@
             </div>
 
             <div class="form-group">
-              <label id="target-keywords-label">Palavras-chave</label>
-              <div id="targetKeywords" class="keywords-container" role="list" aria-labelledby="target-keywords-label">
-              </div>
+              <h3 id="target-keywords-label">Palavras-chave</h3>
+              <ul id="targetKeywords" class="keywords-container" aria-labelledby="target-keywords-label">
+              </ul>
               <button type="button" id="targetKeywordsAdd" class="btn-add-keyword"
-                aria-label="Adicionar palavra-chave do objetivo">+ Adicionar Palavra-chave</button>
+                aria-label="+ Adicionar Palavra-chave">+ Adicionar Palavra-chave</button>
             </div>
           </form>
         </section>
@@ -206,8 +218,8 @@
         <section class="panel" id="graduation" aria-labelledby="graduation-heading">
           <h2 id="graduation-heading">Escolaridade</h2>
           <form aria-label="Formulário de escolaridade">
-            <div id="graduationList" role="list" aria-label="Lista de formações acadêmicas"></div>
-            <button type="button" id="graduationAdd" class="add-item" aria-label="Adicionar nova formação acadêmica">+
+            <ul id="graduationList" aria-label="Lista de formações acadêmicas"></ul>
+            <button type="button" id="graduationAdd" class="add-item" aria-label="+ Adicionar Escolaridade">+
               Adicionar Escolaridade</button>
           </form>
         </section>
@@ -215,8 +227,8 @@
         <section class="panel" id="specialization" aria-labelledby="specialization-heading">
           <h2 id="specialization-heading">Especialização</h2>
           <form aria-label="Formulário de especializações">
-            <div id="specializationList" role="list" aria-label="Lista de especializações"></div>
-            <button type="button" id="specializationAdd" class="add-item" aria-label="Adicionar nova especialização">+
+            <ul id="specializationList" aria-label="Lista de especializações"></ul>
+            <button type="button" id="specializationAdd" class="add-item" aria-label="+ Adicionar Especialização">+
               Adicionar Especialização</button>
           </form>
         </section>
@@ -224,8 +236,8 @@
         <section class="panel" id="projects" aria-labelledby="projects-heading">
           <h2 id="projects-heading">Projetos</h2>
           <form aria-label="Formulário de projetos">
-            <div id="projectsList" role="list" aria-label="Lista de projetos"></div>
-            <button type="button" id="projectsAdd" class="add-item" aria-label="Adicionar novo projeto">+ Adicionar
+            <ul id="projectsList" aria-label="Lista de projetos"></ul>
+            <button type="button" id="projectsAdd" class="add-item" aria-label="+ Adicionar Projeto">+ Adicionar
               Projeto</button>
           </form>
         </section>
@@ -233,15 +245,15 @@
         <section class="panel" id="experience" aria-labelledby="experience-heading">
           <h2 id="experience-heading">Experiência Profissional</h2>
           <form aria-label="Formulário de experiências profissionais">
-            <div id="experienceList" role="list" aria-label="Lista de experiências profissionais"></div>
+            <ul id="experienceList" aria-label="Lista de experiências profissionais"></ul>
             <button type="button" id="experienceAdd" class="add-item"
-              aria-label="Adicionar nova experiência profissional">+ Adicionar Experiência</button>
+              aria-label="+ Adicionar Experiência Profissional">+ Adicionar Experiência</button>
           </form>
         </section>
 
       </main>
 
-      <aside class="preview-container" role="complementary" aria-labelledby="preview-heading">
+      <aside class="preview-container" aria-labelledby="preview-heading">
         <div id="output">
           <h3 id="preview-heading">Pré-visualização do Currículo</h3>
           <iframe title="Pré-visualização do currículo em tempo real" id="previewFrame" aria-live="polite"></iframe>

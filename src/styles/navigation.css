@@ -6,7 +6,6 @@
     display: flex;
     gap: var(--space-md);
     padding: 14px var(--space-2xl);
-    background: var(--color-bg-primary);
     border-bottom: 1px solid var(--color-border);
     overflow-x: auto;
     overflow-y: hidden;

@@ -17,18 +17,18 @@ export class Graduation {
   }
 
   #addItem(data = null) {
-    const item = document.createElement('div');
+    const index = this.#graduationList?.children.length || 0;
+    const item = document.createElement('li');
     item.className = 'item';
-    item.setAttribute('role', 'group');
     item.setAttribute('aria-label', 'Item de escolaridade');
 
     item.innerHTML = `
-      <input class="title" placeholder="Título" aria-label="Título do curso" />
-      <input class="institution" placeholder="Instituição" aria-label="Nome da instituição" />
-      <input type="date" class="startsAt" placeholder="Início" aria-label="Data de início" />
-      <input type="date" class="endsAt" placeholder="Fim" aria-label="Data de término" />
-      <label><input type="checkbox" class="currently" /> Cursa Atualmente?</label>
-      <textarea class="description" placeholder="Descrição" aria-label="Descrição do curso"></textarea>
+      <input id="graduationList-title-${index}" class="title" placeholder="Título" aria-label="Título do curso" />
+      <input id="graduationList-institution-${index}" class="institution" placeholder="Instituição" aria-label="Nome da instituição" />
+      <input type="date" id="graduationList-startsAt-${index}" class="startsAt" placeholder="Início" aria-label="Data de início" />
+      <input type="date" id="graduationList-endsAt-${index}" class="endsAt" placeholder="Fim" aria-label="Data de término" />
+      <label><input type="checkbox" id="graduationList-currently-${index}" class="currently" /> Cursa Atualmente?</label>
+      <textarea id="graduationList-description-${index}" class="description" placeholder="Descrição" aria-label="Descrição do curso"></textarea>
     `;
 
     const currentlyCheckbox = item.querySelector('.currently');
@@ -38,12 +38,11 @@ export class Graduation {
       endsAtInput.style.display = event.target?.checked ? 'none' : 'block';
     });
 
-    const keywordsSub = document.createElement('div');
+    const keywordsSub = document.createElement('li');
     keywordsSub.className = 'keywords-sub';
-    keywordsSub.setAttribute('role', 'group');
     keywordsSub.setAttribute('aria-label', 'Palavras-chave da escolaridade');
 
-    const keywordsLabel = document.createElement('label');
+    const keywordsLabel = document.createElement('h3');
     keywordsLabel.textContent = 'Palavras-chave';
     keywordsSub.appendChild(keywordsLabel);
 
@@ -53,10 +52,10 @@ export class Graduation {
     keywordsAddBtn.type = 'button';
     keywordsAddBtn.className = 'keywords-add';
     keywordsAddBtn.textContent = '+ Adicionar palavra-chave';
-    keywordsAddBtn.setAttribute('aria-label', 'Adicionar palavra-chave');
+    keywordsAddBtn.setAttribute('aria-label', '+ Adicionar palavra-chave');
     keywordsAddBtn.addEventListener('click', (event) => {
       event.preventDefault();
-      this.#addKeyword(keywordsSub);
+      this.#addKeyword(keywordsSub, index);
     });
 
     item.appendChild(keywordsAddBtn);
@@ -75,16 +74,17 @@ export class Graduation {
     this.#graduationList?.appendChild(item);
   }
 
-  #addKeyword(container, value = '') {
-    const kwDiv = document.createElement('div');
+  #addKeyword(container, containerIndex, value = '') {
+    const index = container?.children.length || 0;
+    const kwDiv = document.createElement('li');
     kwDiv.className = 'keyword-tag-inline';
-    kwDiv.setAttribute('role', 'group');
     kwDiv.setAttribute('aria-label', 'Palavra-chave');
 
     const input = document.createElement('input');
     input.className = 'keyword-input';
     input.type = 'text';
     input.placeholder = 'palavra-chave';
+    input.id = `graduationList-${containerIndex}-keyword-input-${index}`;
     input.setAttribute('aria-label', 'Texto da palavra-chave');
     if (value) input.value = value;
 
@@ -121,6 +121,7 @@ export class Graduation {
     setInputValue('.description', data.description);
 
     const keywordsSub = item.querySelector('.keywords-sub');
-    data.keywords?.forEach(kw => this.#addKeyword(keywordsSub, kw));
+    const graduationIndex = Array.from(this.#graduationList.children).indexOf(item);
+    data.keywords?.forEach(kw => this.#addKeyword(keywordsSub, graduationIndex, kw));
   }
 }

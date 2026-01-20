@@ -17,14 +17,14 @@ export class Skills {
   }
 
   #addItem(data = null) {
-    const item = document.createElement('div');
+    const index = this.#skillsList?.children.length || 0;
+    const item = document.createElement('li');
     item.className = 'item';
-    item.setAttribute('role', 'group');
     item.setAttribute('aria-label', 'Item de habilidade');
 
     item.innerHTML = `
-      <input class="title" placeholder="Habilidade" aria-label="Nome da habilidade" />
-      <select class="level" aria-label="Nível de proficiência">
+      <input id="skillsList-title-${index}" class="title" placeholder="Habilidade" aria-label="Nome da habilidade" />
+      <select id="skillsList-level-${index}" class="level" aria-label="Nível de proficiência">
         <option value="basic">básico</option>
         <option value="basic-average">iniciante</option>
         <option value="average">intermediário</option>

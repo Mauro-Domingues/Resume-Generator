@@ -17,26 +17,25 @@ export class Experience {
   }
 
   #addItem(data = null) {
-    const item = document.createElement('div');
+    const index = this.#experienceList?.children.length || 0;
+    const item = document.createElement('li');
     item.className = 'item';
-    item.setAttribute('role', 'group');
     item.setAttribute('aria-label', 'Item de experiência profissional');
 
     item.innerHTML = `
-      <input class="title" placeholder="Cargo" aria-label="Cargo" />
-      <input class="company" placeholder="Empresa" aria-label="Empresa" />
-      <input type="date" class="startsAt" aria-label="Data de início" />
-      <input type="date" class="endsAt" aria-label="Data de término" />
-      <label><input type="checkbox" class="currently" /> Trabalha Atualmente?</label>
-      <textarea class="description" placeholder="Descrição" aria-label="Descrição das atividades"></textarea>
+      <input id="experienceList-title-${index}" class="title" placeholder="Cargo" aria-label="Cargo" />
+      <input id="experienceList-company-${index}" class="company" placeholder="Empresa" aria-label="Empresa" />
+      <input type="date" id="experienceList-startsAt-${index}" class="startsAt" aria-label="Data de início" />
+      <input type="date" id="experienceList-endsAt-${index}" class="endsAt" aria-label="Data de término" />
+      <label><input type="checkbox" id="experienceList-currently-${index}" class="currently" /> Trabalha Atualmente?</label>
+      <textarea id="experienceList-description-${index}" class="description" placeholder="Descrição" aria-label="Descrição das atividades"></textarea>
     `;
 
-    const keywordsSub = document.createElement('div');
+    const keywordsSub = document.createElement('li');
     keywordsSub.className = 'keywords-sub';
-    keywordsSub.setAttribute('role', 'group');
     keywordsSub.setAttribute('aria-label', 'Palavras-chave da experiência');
 
-    const keywordsLabel = document.createElement('label');
+    const keywordsLabel = document.createElement('h3');
     keywordsLabel.textContent = 'Palavras-chave';
     keywordsSub.appendChild(keywordsLabel);
 
@@ -46,10 +45,10 @@ export class Experience {
     keywordsAddBtn.type = 'button';
     keywordsAddBtn.className = 'keywords-add';
     keywordsAddBtn.textContent = '+ Adicionar palavra-chave';
-    keywordsAddBtn.setAttribute('aria-label', 'Adicionar palavra-chave');
+    keywordsAddBtn.setAttribute('aria-label', '+ Adicionar palavra-chave');
     keywordsAddBtn.addEventListener('click', (event) => {
       event.preventDefault();
-      this.#addKeyword(keywordsSub);
+      this.#addKeyword(keywordsSub, index);
     });
 
     item.appendChild(keywordsAddBtn);
@@ -77,16 +76,17 @@ export class Experience {
     this.#experienceList?.appendChild(item);
   }
 
-  #addKeyword(container, value = '') {
-    const kwDiv = document.createElement('div');
+  #addKeyword(container, containerIndex, value = '') {
+    const index = container?.children.length || 0;
+    const kwDiv = document.createElement('li');
     kwDiv.className = 'keyword-tag-inline';
-    kwDiv.setAttribute('role', 'group');
     kwDiv.setAttribute('aria-label', 'Palavra-chave');
 
     const input = document.createElement('input');
     input.className = 'keyword-input';
     input.type = 'text';
     input.placeholder = 'palavra-chave';
+    input.id = `experienceList-${containerIndex}-keyword-input-${index}`;
     input.setAttribute('aria-label', 'Texto da palavra-chave');
     if (value) input.value = value;
 
@@ -123,6 +123,7 @@ export class Experience {
     setInputValue('.description', data.description);
 
     const keywordsSub = item.querySelector('.keywords-sub');
-    data.keywords?.forEach(kw => this.#addKeyword(keywordsSub, kw));
+    const experienceIndex = Array.from(this.#experienceList.children).indexOf(item);
+    data.keywords?.forEach(kw => this.#addKeyword(keywordsSub, experienceIndex, kw));
   }
 }

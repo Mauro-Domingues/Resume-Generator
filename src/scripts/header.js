@@ -89,14 +89,14 @@ export class Header {
   }
 
   #addPersonalLink(data = null) {
-    const item = document.createElement('div');
+    const index = this.#personalLinksContainer?.children.length || 0;
+    const item = document.createElement('li');
     item.className = 'item';
-    item.setAttribute('role', 'group');
     item.setAttribute('aria-label', 'Link pessoal');
 
     item.innerHTML = `
-      <input class="title" placeholder="Nome do Site (e.g., Portfolio)" aria-label="Nome do link" />
-      <input class="url" placeholder="URL do Site" aria-label="URL do link" />
+      <input id="personalLink-title-${index}" class="title" placeholder="Nome do Site (e.g., Portfolio)" aria-label="Nome do link" />
+      <input id="personalLink-url-${index}" class="url" placeholder="URL do Site" aria-label="URL do link" />
     `;
 
     const removeBtn = document.createElement('button');
