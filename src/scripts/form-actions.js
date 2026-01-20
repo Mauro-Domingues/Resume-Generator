@@ -108,12 +108,20 @@ export class FormActions {
 
       const autoPrintScript = `
       <script>
-        globalThis.onload = () => {
-          globalThis.print();
-          globalThis.onafterprint = () => {
-            globalThis.history.back();
-          };
+        const executePrint = () => {
+          setTimeout(() => {
+            globalThis.print();
+            globalThis.onafterprint = () => {
+              globalThis.history.back();
+            };
+          }, 100);
         };
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', executePrint);
+        } else {
+          executePrint();
+        }
       </script>
     `;
 
