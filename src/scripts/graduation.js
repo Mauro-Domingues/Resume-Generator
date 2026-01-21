@@ -36,7 +36,7 @@ export class Graduation {
       <textarea id="graduationList-description-${index}" class="description" placeholder="Descrição" aria-label="Descrição do curso"></textarea>
     `;
 
-    const currentlyCheckbox = item.querySelector('.currently');
+    const currentlyCheckbox = item.querySelector(`#graduationList-currently-${index}`);
     const endsAtInput = item.querySelector('.endsAt');
 
     currentlyCheckbox?.addEventListener('change', (event) => {

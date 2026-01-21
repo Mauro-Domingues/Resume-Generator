@@ -65,7 +65,7 @@ export class Experience {
 
     item.appendChild(removeBtn);
 
-    const currentlyCheckbox = item.querySelector('.currently');
+    const currentlyCheckbox = item.querySelector(`#experienceList-currently-${index}`);
     const endsAtInput = item.querySelector('.endsAt');
 
     currentlyCheckbox?.addEventListener('change', (event) => {
