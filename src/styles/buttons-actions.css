@@ -7,7 +7,7 @@
 .keyword-remove:hover,
 .remove:hover {
     background: var(--color-error);
-    color: white;
+    color: var(--color-white);
     border-color: var(--color-error);
     opacity: 1;
     transform: scale(1.1);
