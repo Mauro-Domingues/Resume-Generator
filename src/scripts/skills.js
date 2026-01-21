@@ -23,7 +23,9 @@ export class Skills {
     item.setAttribute('aria-label', 'Item de habilidade');
 
     item.innerHTML = `
+      <label for="skillsList-title-${index}">HABILIDADE</label>
       <input id="skillsList-title-${index}" class="title" placeholder="Habilidade" aria-label="Nome da habilidade" />
+      <label for="skillsList-level-${index}">NÍVEL DE PROFICIÊNCIA</label>
       <select id="skillsList-level-${index}" class="level" aria-label="Nível de proficiência">
         <option value="basic">básico</option>
         <option value="basic-average">iniciante</option>

@@ -23,9 +23,13 @@ export class Graduation {
     item.setAttribute('aria-label', 'Item de escolaridade');
 
     item.innerHTML = `
+      <label for="graduationList-title-${index}">TÍTULO</label>
       <input id="graduationList-title-${index}" class="title" placeholder="Título" aria-label="Título do curso" />
+      <label for="graduationList-institution-${index}">INSTITUIÇÃO</label>
       <input id="graduationList-institution-${index}" class="institution" placeholder="Instituição" aria-label="Nome da instituição" />
+      <label for="graduationList-startsAt-${index}">DATA DE INÍCIO</label>
       <input type="date" id="graduationList-startsAt-${index}" class="startsAt" placeholder="Início" aria-label="Data de início" />
+      <label for="graduationList-endsAt-${index}">DATA DE TÉRMINO</label>
       <input type="date" id="graduationList-endsAt-${index}" class="endsAt" placeholder="Fim" aria-label="Data de término" />
       <div class="form-group">
         <label for="graduationList-currently-${index}">
@@ -33,6 +37,7 @@ export class Graduation {
           Cursa Atualmente?
         </label>
       </div>
+      <label for="graduationList-description-${index}">DESCRIÇÃO</label>
       <textarea id="graduationList-description-${index}" class="description" placeholder="Descrição" aria-label="Descrição do curso"></textarea>
     `;
 

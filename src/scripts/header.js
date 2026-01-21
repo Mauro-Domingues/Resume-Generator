@@ -95,7 +95,9 @@ export class Header {
     item.setAttribute('aria-label', 'Link pessoal');
 
     item.innerHTML = `
+      <label for="personalLink-title-${index}">NOME DO SITE</label>
       <input id="personalLink-title-${index}" class="title" placeholder="Nome do Site (e.g., Portfolio)" aria-label="Nome do link" />
+      <label for="personalLink-url-${index}">URL DO SITE</label>
       <input id="personalLink-url-${index}" class="url" placeholder="URL do Site" aria-label="URL do link" />
     `;
 

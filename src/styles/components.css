@@ -38,7 +38,7 @@
 }
 
 h3,
-.form-group label {
+label {
     display: flex;
     margin-bottom: var(--space-sm);
     font-weight: 700;
@@ -48,6 +48,10 @@ h3,
     text-transform: uppercase;
     opacity: 0.9;
     transition: opacity 0.3s ease;
+}
+
+.form-group h3 {
+    margin-top: var(--space-sm);
 }
 
 .form-group input,

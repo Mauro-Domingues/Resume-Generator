@@ -23,9 +23,13 @@ export class Experience {
     item.setAttribute('aria-label', 'Item de experiência profissional');
 
     item.innerHTML = `
+      <label for="experienceList-title-${index}">CARGO</label>
       <input id="experienceList-title-${index}" class="title" placeholder="Cargo" aria-label="Cargo" />
+      <label for="experienceList-company-${index}">EMPRESA</label>
       <input id="experienceList-company-${index}" class="company" placeholder="Empresa" aria-label="Empresa" />
+      <label for="experienceList-startsAt-${index}">DATA DE INÍCIO</label>
       <input type="date" id="experienceList-startsAt-${index}" class="startsAt" aria-label="Data de início" />
+      <label for="experienceList-endsAt-${index}">DATA DE TÉRMINO</label>
       <input type="date" id="experienceList-endsAt-${index}" class="endsAt" aria-label="Data de término" />
       <div class="form-group">
         <label for="experienceList-currently-${index}">
@@ -33,6 +37,7 @@ export class Experience {
           Trabalha Atualmente?
         </label>
       </div>
+      <label for="experienceList-description-${index}">DESCRIÇÃO</label>
       <textarea id="experienceList-description-${index}" class="description" placeholder="Descrição" aria-label="Descrição das atividades"></textarea>
     `;
 
