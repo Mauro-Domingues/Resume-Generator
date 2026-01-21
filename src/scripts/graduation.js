@@ -32,9 +32,12 @@ export class Graduation extends KeywordMixin(BaseListManager) {
 
     const currentlyCheckbox = item.querySelector(`#graduationList-currently-${index}`);
     const endsAtInput = item.querySelector('.endsAt');
+    const endsAtLabel = item.querySelector(`label[for="graduationList-endsAt-${index}"]`);
+
 
     currentlyCheckbox?.addEventListener('change', (event) => {
       endsAtInput.style.display = event.target?.checked ? 'none' : 'block';
+      endsAtLabel.style.display = event.target?.checked ? 'none' : 'block';
     });
 
     item._keywordsSub = keywordsSub;

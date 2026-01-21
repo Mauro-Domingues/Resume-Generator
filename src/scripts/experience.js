@@ -32,10 +32,13 @@ export class Experience extends KeywordMixin(BaseListManager) {
 
     const currentlyCheckbox = item.querySelector(`#experienceList-currently-${index}`);
     const endsAtInput = item.querySelector('.endsAt');
+    const endsAtLabel = item.querySelector(`label[for="experienceList-endsAt-${index}"]`);
+
 
     currentlyCheckbox?.addEventListener('change', (event) => {
       if (endsAtInput) {
         endsAtInput.style.display = event.target.checked ? 'none' : 'block';
+        endsAtLabel.style.display = event.target.checked ? 'none' : 'block';
       }
     });
 
