@@ -31,12 +31,13 @@
 
   <link rel="icon" type="image/svg+xml" href="./src/images/fav-icon.svg">
 
-  <link rel="stylesheet" href="./src/styles/root.css" />
-  <link rel="stylesheet" href="./src/styles/critical.css" />
+  <link rel="preload" href="./src/styles/root.css" as="style" onload="this.rel='stylesheet'" />
+  <link rel="preload" href="./src/styles/critical.css" as="style" onload="this.rel='stylesheet'" />
+  <link rel="preload" href="./src/styles/responsive.css" as="style" onload="this.rel='stylesheet'" />
+
   <link rel="stylesheet" href="./src/styles/buttons.css" />
   <link rel="stylesheet" href="./src/styles/navigation.css" />
   <link rel="stylesheet" href="./src/styles/components.css" />
-  <link rel="stylesheet" href="./src/styles/responsive.css" media="print" onload="this.media='all'" />
   <link rel="stylesheet" href="./src/styles/critical-actions.css" media="print" onload="this.media='all'" />
   <link rel="stylesheet" href="./src/styles/buttons-actions.css" media="print" onload="this.media='all'" />
   <link rel="stylesheet" href="./src/styles/navigation-actions.css" media="print" onload="this.media='all'" />
@@ -44,6 +45,8 @@
   <link rel="stylesheet" href="./src/styles/keyframes.css" media="print" onload="this.media='all'" />
 
   <noscript>
+    <link rel="stylesheet" href="./src/styles/root.css" />
+    <link rel="stylesheet" href="./src/styles/critical.css" />
     <link rel="stylesheet" href="./src/styles/responsive.css" />
     <link rel="stylesheet" href="./src/styles/critical-actions.css" />
     <link rel="stylesheet" href="./src/styles/buttons-actions.css" />
