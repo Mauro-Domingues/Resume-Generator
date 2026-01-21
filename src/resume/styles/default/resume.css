@@ -1,11 +1,11 @@
-body {
+:is(body) {
   display: flex;
   gap: 1.875rem;
   flex-direction: column;
   align-content: center;
 }
 
-section {
+:is(section) {
   gap: 1.25rem;
 }
 
