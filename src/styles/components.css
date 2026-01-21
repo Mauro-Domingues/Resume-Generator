@@ -146,7 +146,7 @@ ul {
     overflow: hidden;
     width: 209.7mm;
     max-width: 100%;
-    aspect-ratio: 209.7 / 297;
+    height: fit-content;
     box-shadow: 0 0.75rem 2rem 0 color-mix(in srgb, #000000 12%, transparent);
     margin-bottom: 4.375rem;
     border: 0.0625rem solid var(--color-border);
@@ -166,12 +166,13 @@ ul {
 }
 
 #previewFrame {
-    flex: 1;
-    border: none;
     width: 100%;
+    height: auto;
+    aspect-ratio: 210 / 297;
+    max-height: calc(100vh - 13.75rem);
+    border: 0.0625rem solid var(--color-border);
     background: var(--color-bg-primary);
     display: block;
-    padding: var(--space-sm);
 }
 
 .preview-container {

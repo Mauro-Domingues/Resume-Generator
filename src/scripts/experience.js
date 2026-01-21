@@ -1,28 +1,13 @@
-export class Experience {
-  #experienceList;
-  #experienceAddBtn;
+import { BaseListManager } from './base/BaseListManager.js';
+import { KeywordMixin } from './base/KeywordMixin.js';
 
+export class Experience extends KeywordMixin(BaseListManager) {
   constructor() {
-    this.#experienceList = document.querySelector('#experienceList');
-    this.#experienceAddBtn = document.querySelector('#experienceAdd');
-    this.#setupEventListeners();
+    super('experienceList', 'experienceAdd');
   }
 
-  init(experiences = []) {
-    experiences.forEach(exp => this.#addItem(exp));
-  }
-
-  #setupEventListeners() {
-    this.#experienceAddBtn?.addEventListener('click', () => this.#addItem());
-  }
-
-  #addItem(data = null) {
-    const index = this.#experienceList?.children.length || 0;
-    const item = document.createElement('li');
-    item.className = 'item';
-    item.setAttribute('aria-label', 'Item de experiência profissional');
-
-    item.innerHTML = `
+  createItemHTML(index) {
+    return `
       <label for="experienceList-title-${index}">CARGO</label>
       <input id="experienceList-title-${index}" class="title" placeholder="Cargo" aria-label="Cargo" />
       <label for="experienceList-company-${index}">EMPRESA</label>
@@ -33,42 +18,17 @@ export class Experience {
       <input type="date" id="experienceList-endsAt-${index}" class="endsAt" aria-label="Data de término" />
       <div class="form-group">
         <label for="experienceList-currently-${index}">
-          <input type="checkbox" id="experienceList-currently-${index}" />
+          <input type="checkbox" id="experienceList-currently-${index}" class="currently" />
           Trabalha Atualmente?
         </label>
       </div>
       <label for="experienceList-description-${index}">DESCRIÇÃO</label>
       <textarea id="experienceList-description-${index}" class="description" placeholder="Descrição" aria-label="Descrição das atividades"></textarea>
     `;
+  }
 
-    const keywordsSub = document.createElement('li');
-    keywordsSub.className = 'keywords-sub';
-    keywordsSub.setAttribute('aria-label', 'Palavras-chave da experiência');
-
-    const keywordsLabel = document.createElement('h3');
-    keywordsLabel.textContent = 'Palavras-chave';
-    keywordsSub.appendChild(keywordsLabel);
-
-    item.appendChild(keywordsSub);
-
-    const keywordsAddBtn = document.createElement('button');
-    keywordsAddBtn.type = 'button';
-    keywordsAddBtn.className = 'keywords-add';
-    keywordsAddBtn.textContent = '+ Adicionar palavra-chave';
-    keywordsAddBtn.setAttribute('aria-label', '+ Adicionar palavra-chave');
-    keywordsAddBtn.addEventListener('click', (event) => {
-      event.preventDefault();
-      this.#addKeyword(keywordsSub, index);
-    });
-
-    item.appendChild(keywordsAddBtn);
-
-    const removeBtn = document.createElement('button');
-    removeBtn.className = 'remove';
-    removeBtn.setAttribute('aria-label', 'Remover experiência');
-    removeBtn.addEventListener('click', () => item.remove());
-
-    item.appendChild(removeBtn);
+  setupItemBehavior(item, index) {
+    const { keywordsSub } = this.createKeywordsSection(item, index, 'Palavras-chave');
 
     const currentlyCheckbox = item.querySelector(`#experienceList-currently-${index}`);
     const endsAtInput = item.querySelector('.endsAt');
@@ -79,50 +39,11 @@ export class Experience {
       }
     });
 
-    if (data) {
-      this.#populateItem(item, index, data);
-    }
-
-    this.#experienceList?.appendChild(item);
+    item._keywordsSub = keywordsSub;
   }
 
-  #addKeyword(container, containerIndex, value = '') {
-    const index = container?.children.length || 0;
-    const kwDiv = document.createElement('li');
-    kwDiv.className = 'keyword-tag-inline';
-    kwDiv.setAttribute('aria-label', 'Palavra-chave');
-
-    const input = document.createElement('input');
-    input.className = 'keyword-input';
-    input.type = 'text';
-    input.placeholder = 'palavra-chave';
-    input.id = `experienceList-${containerIndex}-keyword-input-${index}`;
-    input.setAttribute('aria-label', 'Texto da palavra-chave');
-    if (value) input.value = value;
-
-    const removeBtn = document.createElement('button');
-    removeBtn.type = 'button';
-    removeBtn.className = 'keyword-remove';
-    removeBtn.setAttribute('aria-label', 'Remover palavra-chave');
-    removeBtn.addEventListener('click', () => kwDiv.remove());
-
-    kwDiv.appendChild(input);
-    kwDiv.appendChild(removeBtn);
-    container.appendChild(kwDiv);
-  }
-
-  #populateItem(item, index, data) {
-    const setInputValue = (selector, value) => {
-      if (value !== undefined) {
-        const el = item.querySelector(selector);
-        if (el) el.value = value;
-      }
-    };
-
-    setInputValue('.title', data.title);
-    setInputValue('.company', data.company);
-    setInputValue('.startsAt', data.startsAt);
-    setInputValue('.endsAt', data.endsAt);
+  populateItem(item, index, data) {
+    super.populateItem(item, index, data);
 
     const currentlyCheckbox = item.querySelector('.currently');
     if (currentlyCheckbox && data.currently !== undefined) {
@@ -130,9 +51,16 @@ export class Experience {
       currentlyCheckbox.dispatchEvent(new Event('change', { bubbles: true }));
     }
 
-    setInputValue('.description', data.description);
+    if (item._keywordsSub && data.keywords) {
+      this.populateKeywords(item._keywordsSub, index, data.keywords);
+    }
+  }
 
-    const keywordsSub = item.querySelector('.keywords-sub');
-    data.keywords?.forEach(kw => this.#addKeyword(keywordsSub, index, kw));
+  getItemAriaLabel() {
+    return 'Item de experiência profissional';
+  }
+
+  getRemoveAriaLabel() {
+    return 'Remover experiência';
   }
 }

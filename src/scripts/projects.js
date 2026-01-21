@@ -1,28 +1,13 @@
-export class Project {
-  #projectList;
-  #addButton;
+import { BaseListManager } from './base/BaseListManager.js';
+import { KeywordMixin } from './base/KeywordMixin.js';
 
+export class Project extends KeywordMixin(BaseListManager) {
   constructor() {
-    this.#projectList = document.querySelector('#projectsList');
-    this.#addButton = document.querySelector('#projectsAdd');
-    this.#setupEventListeners();
+    super('projectsList', 'projectsAdd');
   }
 
-  init(projects = []) {
-    projects.forEach(project => this.#addItem(project));
-  }
-
-  #setupEventListeners() {
-    this.#addButton?.addEventListener('click', () => this.#addItem());
-  }
-
-  #addItem(data = null) {
-    const index = this.#projectList?.children.length || 0;
-    const item = document.createElement('li');
-    item.className = 'item';
-    item.setAttribute('aria-label', 'Item de projeto');
-
-    item.innerHTML = `
+  createItemHTML(index) {
+    return `
       <label for="projectsList-title-${index}">TÍTULO</label>
       <input id="projectsList-title-${index}" class="title" placeholder="Título" aria-label="Título do projeto" />
       <label for="projectsList-description-${index}">DESCRIÇÃO</label>
@@ -37,40 +22,15 @@ export class Project {
       <label for="projectsList-linkRef-${index}">URL DO LINK</label>
       <input id="projectsList-linkRef-${index}" class="link-ref" placeholder="Link URL" aria-label="URL do link" />
     `;
+  }
 
-    const keywordsSub = document.createElement('li');
-    keywordsSub.className = 'keywords-sub';
-    keywordsSub.setAttribute('aria-label', 'Palavras-chave do projeto');
-
-    const keywordsLabel = document.createElement('h3');
-    keywordsLabel.textContent = 'Palavras-chave';
-    keywordsSub.appendChild(keywordsLabel);
-
-    item.appendChild(keywordsSub);
-
-    const keywordsAddBtn = document.createElement('button');
-    keywordsAddBtn.type = 'button';
-    keywordsAddBtn.className = 'keywords-add';
-    keywordsAddBtn.textContent = '+ Adicionar palavra-chave';
-    keywordsAddBtn.setAttribute('aria-label', '+ Adicionar palavra-chave');
-    keywordsAddBtn.addEventListener('click', (event) => {
-      event.preventDefault();
-      this.#addKeyword(keywordsSub, index);
-    });
-
-    item.appendChild(keywordsAddBtn);
-
-    const removeBtn = document.createElement('button');
-    removeBtn.className = 'remove';
-    removeBtn.setAttribute('aria-label', 'Remover projeto');
-    removeBtn.addEventListener('click', () => item.remove());
-
-    item.appendChild(removeBtn);
+  setupItemBehavior(item, index) {
+    const { keywordsSub } = this.createKeywordsSection(item, index, 'Palavras-chave');
 
     const bannerInput = item.querySelector('.banner');
     const clearBtn = item.querySelector('.banner-remove');
 
-    bannerInput.addEventListener('change', (event) => {
+    bannerInput?.addEventListener('change', (event) => {
       const file = event.target.files?.[0];
       if (file) {
         const reader = new FileReader();
@@ -81,45 +41,18 @@ export class Project {
       }
     });
 
-    clearBtn.addEventListener('click', (event) => {
+    clearBtn?.addEventListener('click', (event) => {
       event.preventDefault();
-      bannerInput.value = '';
-      bannerInput.dataset.base64 = '';
+      if (bannerInput) {
+        bannerInput.value = '';
+        bannerInput.dataset.base64 = '';
+      }
     });
 
-    if (data) {
-      this.#populateItem(item, index, data);
-    }
-
-    this.#projectList?.appendChild(item);
+    item._keywordsSub = keywordsSub;
   }
 
-  #addKeyword(container, containerIndex, value = '') {
-    const index = container?.children.length || 0;
-    const kwDiv = document.createElement('li');
-    kwDiv.className = 'keyword-tag-inline';
-    kwDiv.setAttribute('aria-label', 'Palavra-chave');
-
-    const input = document.createElement('input');
-    input.className = 'keyword-input';
-    input.type = 'text';
-    input.placeholder = 'palavra-chave';
-    input.id = `projectsList-${containerIndex}-keyword-input-${index}`;
-    input.setAttribute('aria-label', 'Texto da palavra-chave');
-    if (value) input.value = value;
-
-    const removeBtn = document.createElement('button');
-    removeBtn.type = 'button';
-    removeBtn.className = 'keyword-remove';
-    removeBtn.setAttribute('aria-label', 'Remover palavra-chave');
-    removeBtn.addEventListener('click', () => kwDiv.remove());
-
-    kwDiv.appendChild(input);
-    kwDiv.appendChild(removeBtn);
-    container.appendChild(kwDiv);
-  }
-
-  #populateItem(item, index, data) {
+  populateItem(item, index, data) {
     const setInputValue = (selector, value) => {
       if (value !== undefined) {
         const el = item.querySelector(selector);
@@ -139,7 +72,16 @@ export class Project {
       }
     }
 
-    const keywordsSub = item.querySelector('.keywords-sub');
-    data.keywords?.forEach(kw => this.#addKeyword(keywordsSub, index, kw));
+    if (item._keywordsSub && data.keywords) {
+      this.populateKeywords(item._keywordsSub, index, data.keywords);
+    }
+  }
+
+  getItemAriaLabel() {
+    return 'Item de projeto';
+  }
+
+  getRemoveAriaLabel() {
+    return 'Remover projeto';
   }
 }
