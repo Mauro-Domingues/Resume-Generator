@@ -8,12 +8,14 @@ import { Specialization } from './specialization.js';
 import { KeywordManager } from './keyword-manager.js';
 import { Description } from './description.js';
 import { FormActions } from './form-actions.js';
+import { IframeScaler } from './iframe-scaler.js';
 
 class Main {
   constructor() {
     this.#initializeComponents();
     this.#setupKeywordManagers();
     this.#setupFormActions();
+    this.iframeScaler = new IframeScaler();
   }
 
   #initializeComponents() {

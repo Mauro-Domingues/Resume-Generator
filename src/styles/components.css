@@ -168,7 +168,7 @@ ul {
 #previewFrame {
     width: 100%;
     height: auto;
-    aspect-ratio: 210 / 297;
+    aspect-ratio: 209.7 / 297;
     border: 0.0625rem solid var(--color-border);
     background: var(--color-bg-primary);
     display: block;
