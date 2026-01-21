@@ -1,5 +1,5 @@
-import { BaseListManager } from './base/BaseListManager.js';
-import { KeywordMixin } from './base/KeywordMixin.js';
+import { BaseListManager } from './base/baseListManager.js';
+import { KeywordMixin } from './base/keywordMixin.js';
 
 export class Specialization extends KeywordMixin(BaseListManager) {
   constructor() {
