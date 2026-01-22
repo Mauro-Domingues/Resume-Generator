@@ -6,7 +6,6 @@ export class Navigation {
     this.#navButtons = document.querySelectorAll('#nav button:not([data-ignore])');
     this.#panels = document.querySelectorAll('.panel');
     this.#setupNavigation();
-    this.#showFirstPanel();
   }
 
   #setupNavigation() {
@@ -30,17 +29,5 @@ export class Navigation {
   #updateActiveButton(activeButton) {
     this.#navButtons.forEach(btn => btn.classList.remove('active'));
     activeButton.classList.add('active');
-  }
-
-  #showFirstPanel() {
-    const firstPanel = this.#panels[0];
-    const firstButton = this.#navButtons[0];
-
-    if (firstPanel) {
-      firstPanel.classList.add('active');
-    }
-    if (firstButton) {
-      firstButton.classList.add('active');
-    }
   }
 }
