@@ -1,0 +1,25 @@
+/* TECH STYLE */
+:is(body) {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    color: var(--font-color);
+    /* Font defined by user selection (root variable) */
+}
+
+section>.title {
+    font-weight: bold;
+    border-bottom: 1px dashed var(--font-color);
+    margin-bottom: 1rem;
+}
+
+section>.title::before {
+    content: "> ";
+}
+
+svg {
+    width: 1em !important;
+    height: 1em !important;
+    vertical-align: middle;
+    fill: currentColor;
+}

@@ -1,0 +1,33 @@
+#skills {
+    display: flex;
+    flex-direction: column;
+}
+
+#skills>.content>.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow wrapping */
+    gap: 0.5rem;
+    flex-direction: row;
+    /* Switch to pills layout for modern look or keep list? 
+                        User's image showed a long list. Sidebar is narrow. 
+                        Let's stick to list but style it better. */
+    flex-direction: column;
+}
+
+#skills>.content>.skill-list>li {
+    display: flex;
+    flex-direction: column;
+    /* Stack name and level/bar */
+    gap: 0.25rem;
+    font-size: 0.9rem;
+}
+
+/* Skill Name styling */
+#skills>.content>.skill-list>li {
+    background: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    border-left: 3px solid #3498db;
+}

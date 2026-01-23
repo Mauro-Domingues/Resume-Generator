@@ -1,0 +1,9 @@
+#header {
+    border: 1px solid var(--font-color);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+#header>.title {
+    /* Inherit font */
+}

@@ -1,0 +1,9 @@
+#graduations>.graduations-list>li>article>.graduations-title svg {
+    display: none;
+}
+
+#graduations>.graduations-list>li>article>.content {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 0.5rem;
+}

@@ -1,0 +1,10 @@
+#target {
+    display: flex;
+    flex-direction: column;
+    /* Removed order: -1 */
+}
+
+#target>.content {
+    font-style: italic;
+    font-size: 0.95em;
+}

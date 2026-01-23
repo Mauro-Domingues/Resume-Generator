@@ -1,0 +1,20 @@
+#about {
+    flex-direction: column;
+}
+
+#about>.title {
+    display: none;
+    /* Often minimalist resumes skip 'About' title if it's the first paragraph */
+}
+
+/* If user wants the title, we can comment out display:none, but let's follow the section style */
+/* Actually, let's keep the title for consistency, but maybe the user wants it hidden. I'll just keep it consistent with other sections for now. */
+
+#about>.title {
+    display: block;
+}
+
+#about>.content {
+    line-height: 1.6;
+    text-align: justify;
+}

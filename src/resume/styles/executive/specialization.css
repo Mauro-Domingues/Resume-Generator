@@ -1,0 +1,9 @@
+#specializations>.specializations-list>li>article>.specializations-title svg {
+    display: none;
+}
+
+#specializations>.specializations-list>li>article>.content {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 0.5rem;
+}

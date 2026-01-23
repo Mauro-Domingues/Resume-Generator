@@ -1,0 +1,18 @@
+#skills {
+    flex-direction: column;
+}
+
+#skills>.content>.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+#skills>.content>.skill-list>li {
+    border: 1px solid var(--font-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    /* Pill shape */
+    font-size: 0.85rem;
+    background: transparent;
+}

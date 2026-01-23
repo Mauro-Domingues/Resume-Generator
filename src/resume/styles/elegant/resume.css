@@ -1,0 +1,35 @@
+/* ELEGANT STYLE */
+:is(body) {
+    display: flex;
+    flex-direction: column;
+    padding: 0 3rem;
+    text-align: center;
+    color: var(--font-color);
+}
+
+section>.title {
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--font-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+section>.title::before,
+section>.title::after {
+    content: "";
+    height: 1px;
+    flex-grow: 1;
+    background: color-mix(in srgb, var(--font-color) 40%, transparent);
+    max-width: 50px;
+}
+
+svg {
+    width: 1em !important;
+    height: 1em !important;
+    vertical-align: middle;
+    fill: currentColor;
+}

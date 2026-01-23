@@ -1,0 +1,12 @@
+:is(body) {
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
+}
+
+svg {
+    width: 1em !important;
+    height: 1em !important;
+    vertical-align: middle;
+    fill: currentColor;
+}

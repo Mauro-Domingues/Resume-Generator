@@ -1,0 +1,12 @@
+/* Executive Skills */
+#skills>.content>.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#skills>.content>.skill-list>li {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 2px;
+}

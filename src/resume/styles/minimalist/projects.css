@@ -1,0 +1,53 @@
+#projects {
+    flex-direction: column;
+}
+
+#projects>.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#projects>.project-list>li>article {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+#projects>.project-list>li>article>.project-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--font-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#projects>.project-list>li>article>.project-title a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: normal;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+#projects>.project-list>li>article>.project-title svg {
+    margin-right: 0.25rem;
+}
+
+/* Limit banner image size for minimalist look */
+#projects>.project-list>li>article>figure {
+    margin: 0.5rem 0;
+    width: 100%;
+}
+
+#projects>.project-list>li>article>figure>.project-image {
+    max-width: 100%;
+    max-height: 10rem;
+    /* ~160px */
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+}

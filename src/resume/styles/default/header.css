@@ -23,6 +23,13 @@
   gap: 0.4375rem
 }
 
+#header>.contact>.email {
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+
 #header>.contact>li>a>svg {
   overflow: visible;
   width: 1.25rem;

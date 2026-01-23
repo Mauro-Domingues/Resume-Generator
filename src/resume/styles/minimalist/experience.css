@@ -1,0 +1,35 @@
+#experiences {
+    flex-direction: column;
+}
+
+#experiences>.experiences-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#experiences>.experiences-list>li>article {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+#experiences>.experiences-list>li>article>.occupation-title {
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+/* HIDE icon for minimalist style to reduce clutter */
+#experiences>.experiences-list>li>article>.occupation-title svg {
+    display: none !important;
+}
+
+#experiences>.experiences-list>li>article>.content {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 0.5rem;
+    /* Reduced gap for tighter connection between label and value */
+    row-gap: 0.25rem;
+}
