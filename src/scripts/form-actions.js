@@ -92,8 +92,21 @@ export class FormActions {
     };
 
     const main = document.querySelector('main');
+
     main.addEventListener('input', updatePreviewDebounced);
     main.addEventListener('change', updatePreviewDebounced);
+
+    const observer = new MutationObserver((mutations) => {
+      const hasRemovals = mutations.some(mutation => mutation.removedNodes.length > 0);
+      if (hasRemovals) {
+        updatePreviewDebounced();
+      }
+    });
+
+    observer.observe(main, {
+      childList: true,
+      subtree: true
+    });
 
     this.#updatePreview();
   }
