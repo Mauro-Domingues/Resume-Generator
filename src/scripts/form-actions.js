@@ -14,7 +14,7 @@ export class FormActions {
   async #updatePreview() {
     const variables = DataCollector.collect();
     const previewFrame = document.querySelector('#previewFrame');
-
+    await navigator.clipboard.writeText(JSON.stringify(variables))
     if (previewFrame) {
       const htmlContent = await this.#registerTemplate.getContent(variables);
       const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });

@@ -1,29 +1,27 @@
 export class PersistenceManager {
     static #STORAGE_KEY = 'resume_generator_state';
 
-    static save(data) {
-        try {
-            localStorage.setItem(this.#STORAGE_KEY, JSON.stringify(data));
-        } catch (error) {
-            console.error('Erro ao salvar dados:', error);
+    initFromUrl() {
+        const params = new URLSearchParams(globalThis.location.search);
+        const example = params.get("resumeExample");
+
+        if (example) {
+            const parsed = JSON.parse(example);
+            PersistenceManager.save(parsed);
         }
+    }
+
+    static save(data) {
+        localStorage.setItem(this.#STORAGE_KEY, JSON.stringify(data));
     }
 
     static load() {
-        try {
-            const saved = localStorage.getItem(this.#STORAGE_KEY);
-            return saved ? JSON.parse(saved) : null;
-        } catch (error) {
-            console.error('Erro ao carregar dados:', error);
-            return null;
-        }
+        const saved = localStorage.getItem(this.#STORAGE_KEY);
+        return saved ? JSON.parse(saved) : null;
     }
 
     static clear() {
-        try {
-            localStorage.removeItem(this.#STORAGE_KEY);
-        } catch (error) {
-            console.error('Erro ao limpar dados:', error);
-        }
+        localStorage.removeItem(this.#STORAGE_KEY);
     }
 }
+
