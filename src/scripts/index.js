@@ -15,7 +15,7 @@ class Main {
   constructor() {
     this.#initializeComponents();
     this.#setupKeywordManagers();
-    this.#setupPersistence()
+    this.#setupPersistence();
     this.#setupFormActions();
     this.iframeScaler = new IframeScaler();
   }
@@ -46,7 +46,7 @@ class Main {
       project: this.project,
       specialization: this.specialization,
       description: this.description,
-      keywordManager: KeywordManager
+      keywordManager: KeywordManager,
     };
 
     new FormActions(sectionManagers).setupAllActions();
@@ -54,9 +54,9 @@ class Main {
 
   #setupPersistence() {
     const params = new URLSearchParams(globalThis.location.search);
-    const example = params.get("example");
+    const example = params.get('example');
 
-    PersistenceManager.persistenceState = example
+    PersistenceManager.persistenceState = example;
   }
 }
 

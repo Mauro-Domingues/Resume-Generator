@@ -45,10 +45,7 @@ export class BaseListManager {
         const removeBtn = document.createElement('button');
         removeBtn.className = 'remove';
         removeBtn.setAttribute('aria-label', this.getRemoveAriaLabel());
-        removeBtn.addEventListener('click', () => {
-            item.remove();
-            this.#notifyChange();
-        });
+        removeBtn.addEventListener('click', () => item.remove());
         item.appendChild(removeBtn);
 
         this.setupItemBehavior(item, index);
@@ -81,11 +78,5 @@ export class BaseListManager {
 
     getRemoveAriaLabel() {
         return 'Remover item';
-    }
-
-    #notifyChange() {
-        console.log('aqui')
-        const event = new Event('change', { bubbles: true });
-        document.querySelector('main')?.dispatchEvent(event);
     }
 }

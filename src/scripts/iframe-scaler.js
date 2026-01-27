@@ -23,7 +23,9 @@ export class IframeScaler {
     }
 
     #applyScale() {
-        const iframeDoc = this.#previewFrame.contentDocument || this.#previewFrame.contentWindow?.document;
+        const iframeDoc =
+            this.#previewFrame.contentDocument ||
+            this.#previewFrame.contentWindow?.document;
         if (!iframeDoc?.body) return;
 
         const iframeRect = this.#previewFrame.getBoundingClientRect();

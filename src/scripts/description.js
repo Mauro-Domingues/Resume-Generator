@@ -13,7 +13,7 @@ export class Description {
   }
 
   #setupEventListeners() {
-    this.#addButton?.addEventListener('click', (event) => {
+    this.#addButton?.addEventListener('click', event => {
       event.preventDefault();
       this.#addItem();
     });

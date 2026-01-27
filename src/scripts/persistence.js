@@ -13,7 +13,7 @@ export class PersistenceManager {
 
     static async load() {
         if (!this.#PERSISTENCE_STATE) {
-            const example = await fetch('src/assets/example.json')
+            const example = await fetch('src/assets/example.json');
 
             return example.json();
         }
@@ -27,4 +27,3 @@ export class PersistenceManager {
         localStorage.removeItem(this.#STORAGE_KEY);
     }
 }
-

@@ -25,23 +25,27 @@ export class Project extends KeywordMixin(BaseListManager) {
   }
 
   setupItemBehavior(item, index) {
-    const { keywordsSub } = this.createKeywordsSection(item, index, 'Palavras-chave');
+    const { keywordsSub } = this.createKeywordsSection(
+      item,
+      index,
+      'Palavras-chave',
+    );
 
     const bannerInput = item.querySelector('.banner');
     const clearBtn = item.querySelector('.banner-remove');
 
-    bannerInput?.addEventListener('change', (event) => {
+    bannerInput?.addEventListener('change', event => {
       const file = event.target.files?.[0];
       if (file) {
         const reader = new FileReader();
-        reader.onload = (e) => {
+        reader.onload = e => {
           bannerInput.dataset.base64 = e.target?.result || '';
         };
         reader.readAsDataURL(file);
       }
     });
 
-    clearBtn?.addEventListener('click', (event) => {
+    clearBtn?.addEventListener('click', event => {
       event.preventDefault();
       if (bannerInput) {
         bannerInput.value = '';

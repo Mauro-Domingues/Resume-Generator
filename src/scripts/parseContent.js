@@ -10,7 +10,9 @@ export class ParseContent {
   async parseTemplate({ file, variables }) {
     const response = await fetch(file);
     const templateFileContent = await response.text();
-    const parseTemplate = Handlebars.compile(templateFileContent, { compat: true });
+    const parseTemplate = Handlebars.compile(templateFileContent, {
+      compat: true,
+    });
     return parseTemplate(variables);
   }
 }

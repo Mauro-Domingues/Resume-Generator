@@ -3,7 +3,7 @@ export class KeywordManager {
     const container = document.querySelector(`#${containerId}`);
     const addBtn = document.querySelector(`#${addBtnId}`);
 
-    addBtn?.addEventListener('click', (event) => {
+    addBtn?.addEventListener('click', event => {
       event.preventDefault();
       this.#addKeyword(container);
     });

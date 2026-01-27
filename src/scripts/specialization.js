@@ -20,7 +20,11 @@ export class Specialization extends KeywordMixin(BaseListManager) {
   }
 
   setupItemBehavior(item, index) {
-    const { keywordsSub } = this.createKeywordsSection(item, index, 'Palavras-chave');
+    const { keywordsSub } = this.createKeywordsSection(
+      item,
+      index,
+      'Palavras-chave',
+    );
 
     item._keywordsSub = keywordsSub;
   }

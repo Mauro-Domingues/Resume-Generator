@@ -25,7 +25,9 @@ export class Header {
     }
 
     if (headerData.contact?.whatsapp?.value) {
-      this.#whatsappInput.value = this.#applyWhatsappMask(headerData.contact.whatsapp.value);
+      this.#whatsappInput.value = this.#applyWhatsappMask(
+        headerData.contact.whatsapp.value,
+      );
     }
   }
 
@@ -37,7 +39,7 @@ export class Header {
       '#headerGithubDisplay': contact.github?.value,
       '#headerGithubUrl': contact.github?.ref,
       '#headerLinkedinDisplay': contact.linkedin?.value,
-      '#headerLinkedinUrl': contact.linkedin?.ref
+      '#headerLinkedinUrl': contact.linkedin?.ref,
     };
 
     Object.entries(fieldMap).forEach(([selector, value]) => {
@@ -72,17 +74,19 @@ export class Header {
     const format = formats[numbers.length];
     const replacement = replacements[numbers.length];
 
-    return format && replacement ? numbers.replace(format, replacement) : numbers;
+    return format && replacement
+      ? numbers.replace(format, replacement)
+      : numbers;
   }
 
   #setupWhatsappMask() {
-    this.#whatsappInput?.addEventListener('input', (event) => {
+    this.#whatsappInput?.addEventListener('input', event => {
       event.target.value = this.#applyWhatsappMask(event.target.value);
     });
   }
 
   #setupPersonalLinks() {
-    this.#personalLinksAddButton?.addEventListener('click', (event) => {
+    this.#personalLinksAddButton?.addEventListener('click', event => {
       event.preventDefault();
       this.#addPersonalLink();
     });

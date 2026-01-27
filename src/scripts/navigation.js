@@ -3,7 +3,9 @@ export class Navigation {
   #panels;
 
   constructor() {
-    this.#navButtons = document.querySelectorAll('#nav button:not([data-ignore])');
+    this.#navButtons = document.querySelectorAll(
+      '#nav button:not([data-ignore])',
+    );
     this.#panels = document.querySelectorAll('.panel');
     this.#setupNavigation();
   }

@@ -34,14 +34,28 @@ export class FormActions {
 
     this.#restoreTemplateConfig(savedData.templateConfig);
     this.#sectionManagers.header?.init(savedData.headerSection);
-    this.#sectionManagers.description?.init(savedData.aboutSection?.descriptions);
-    this.#sectionManagers.keywordManager?.init('aboutKeywords', savedData.aboutSection?.keywords);
+    this.#sectionManagers.description?.init(
+      savedData.aboutSection?.descriptions,
+    );
+    this.#sectionManagers.keywordManager?.init(
+      'aboutKeywords',
+      savedData.aboutSection?.keywords,
+    );
     this.#sectionManagers.skills?.init(savedData.skillSection?.skills);
-    this.#sectionManagers.keywordManager?.init('skillsKeywords', savedData.skillSection?.keywords);
+    this.#sectionManagers.keywordManager?.init(
+      'skillsKeywords',
+      savedData.skillSection?.keywords,
+    );
     this.#restoreTargetSection(savedData.targetSection);
-    this.#sectionManagers.experience?.init(savedData.experienceSection?.experiences);
-    this.#sectionManagers.graduation?.init(savedData.graduationSection?.graduations);
-    this.#sectionManagers.specialization?.init(savedData.specializationSection?.specializations);
+    this.#sectionManagers.experience?.init(
+      savedData.experienceSection?.experiences,
+    );
+    this.#sectionManagers.graduation?.init(
+      savedData.graduationSection?.graduations,
+    );
+    this.#sectionManagers.specialization?.init(
+      savedData.specializationSection?.specializations,
+    );
     this.#sectionManagers.project?.init(savedData.projectSection?.projects);
 
     await this.#updatePreview();
@@ -54,7 +68,7 @@ export class FormActions {
       '#templateModel': config.name,
       '#templateLanguage': config.language,
       '#templateFontColor': config.fontColor,
-      '#templateFontSize': config.fontSize
+      '#templateFontSize': config.fontSize,
     };
 
     Object.entries(fieldMap).forEach(([selector, value]) => {
@@ -78,7 +92,10 @@ export class FormActions {
       positionInput.value = target.position;
     }
 
-    this.#sectionManagers.keywordManager?.init('targetKeywords', target.keywords);
+    this.#sectionManagers.keywordManager?.init(
+      'targetKeywords',
+      target.keywords,
+    );
   }
 
   #setupAutoPreview() {
@@ -96,8 +113,10 @@ export class FormActions {
     main.addEventListener('input', updatePreviewDebounced);
     main.addEventListener('change', updatePreviewDebounced);
 
-    const observer = new MutationObserver((mutations) => {
-      const hasRemovals = mutations.some(mutation => mutation.removedNodes.length > 0);
+    const observer = new MutationObserver(mutations => {
+      const hasRemovals = mutations.some(
+        mutation => mutation.removedNodes.length > 0,
+      );
       if (hasRemovals) {
         updatePreviewDebounced();
       }
@@ -105,7 +124,7 @@ export class FormActions {
 
     observer.observe(main, {
       childList: true,
-      subtree: true
+      subtree: true,
     });
 
     this.#updatePreview();
@@ -138,11 +157,12 @@ export class FormActions {
       </script>
     `;
 
-      const blob = new Blob([
-        htmlContent.replace('</body>', `${autoPrintScript}</body>`)
-      ], {
-        type: 'text/html;charset=utf-8'
-      });
+      const blob = new Blob(
+        [htmlContent.replace('</body>', `${autoPrintScript}</body>`)],
+        {
+          type: 'text/html;charset=utf-8',
+        },
+      );
       const url = URL.createObjectURL(blob);
 
       globalThis.location.replace(url);

@@ -28,14 +28,21 @@ export class Graduation extends KeywordMixin(BaseListManager) {
   }
 
   setupItemBehavior(item, index) {
-    const { keywordsSub } = this.createKeywordsSection(item, index, 'Palavras-chave');
+    const { keywordsSub } = this.createKeywordsSection(
+      item,
+      index,
+      'Palavras-chave',
+    );
 
-    const currentlyCheckbox = item.querySelector(`#graduationList-currently-${index}`);
+    const currentlyCheckbox = item.querySelector(
+      `#graduationList-currently-${index}`,
+    );
     const endsAtInput = item.querySelector('.endsAt');
-    const endsAtLabel = item.querySelector(`label[for="graduationList-endsAt-${index}"]`);
+    const endsAtLabel = item.querySelector(
+      `label[for="graduationList-endsAt-${index}"]`,
+    );
 
-
-    currentlyCheckbox?.addEventListener('change', (event) => {
+    currentlyCheckbox?.addEventListener('change', event => {
       endsAtInput.style.display = event.target?.checked ? 'none' : 'block';
       endsAtLabel.style.display = event.target?.checked ? 'none' : 'block';
     });
