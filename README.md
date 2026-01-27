@@ -1,20 +1,20 @@
 # 🧾 Construtor de Currículo
 
-Bem-vindo ao **Construtor de Currículo**, uma ferramenta online feita para ajudar você a criar um currículo bonito, organizado e profissional — sem precisar instalar nada ou entender de tecnologia.
+Bem-vindo ao **Construtor de Currículo**, uma ferramenta online (mobile e desktop) feita para ajudar você a criar um currículo bonito, organizado e profissional — sem precisar instalar nada ou entender de tecnologia.
 
 ## 🌐 Acesse o site
 
-👉 Abrir o Construtor de Currículo: https://mauro-domingues.github.io/resume-generator
+👉 Acessar o Construtor de Currículo: [Construtor de Currículo](https://mauro-domingues.github.io/resume-generator)
 
 ## 🧪 Quer ver um exemplo pronto?
 
 Você pode visualizar um currículo fictício já preenchido para se inspirar:
 
-- Ver exemplo interativo: https://mauro-domingues.github.io/resume-generator?example=true
-- Baixar currículo em PDF: https://mauro-domingues.github.io/resume-generator/src/assets/example.pdf
-- Visualizar imagem do currículo: https://mauro-domingues.github.io/resume-generator/src/assets/example.png
+- Ver exemplo interativo: [exemplo interaivo](https://mauro-domingues.github.io/resume-generator?example=true)
+- Baixar currículo em PDF: [exemplo.pdf](https://github.com/user-attachments/files/24886412/example.pdf)
+<img width="1296" height="971" alt="example" src="https://github.com/user-attachments/assets/492e27cf-cdc9-421d-b38f-94d73db59937" />
 
-## ✨ O que dá pra fazer
+## ✨ O que é possível fazer
 
 - Preencher seu currículo por partes: objetivo, sobre você, formação, experiência, projetos e cursos.
 - Visualizar tudo em tempo real, com estilo profissional.
@@ -27,7 +27,7 @@ Você pode visualizar um currículo fictício já preenchido para se inspirar:
 Na aba de configurações, você pode:
 - Escolher o modelo visual do currículo.
 - Mudar a fonte e o tamanho do texto.
-- Ativar o modo monocromático (preto e branco).
+- Ativar o modo monocromático (icones e fontes seguindo variações da cor primária).
 - Selecionar o idioma (Português ou Inglês).
 
 ## 📌 Dicas rápidas
@@ -39,4 +39,4 @@ Na aba de configurações, você pode:
 ## 💬 Precisa de ajuda?
 
 Se tiver dúvidas ou sugestões, entre em contato com o criador do projeto pelo GitHub:
-https://github.com/mauro-domingues
+[Mauro-Domingues](https://github.com/mauro-domingues)
